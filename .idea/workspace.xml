@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f90cd90f-1974-4d22-b773-298d5b02e8d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/asset-management-asset/src/main/java/com/fjyt/asset/management/asset/controller/AssetBorrowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset-management-asset/src/main/java/com/fjyt/asset/management/asset/controller/AssetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset-management-asset/src/main/java/com/fjyt/asset/management/asset/controller/AssetMaintenanceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset-management-asset/src/main/java/com/fjyt/asset/management/asset/controller/AssetUseController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../muke_take_out/src/main/java/com/mukework/muke/common/JacksonObjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2OXK3Gxriht6sCCfL1jsFxAS9XW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -29,11 +35,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/asset-management/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/asset-management-asset/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -41,18 +51,24 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitProject\fjyt-asset-management\asset-management-asset\src\main\resources" />
       <recent name="D:\GitProject\fjyt-asset-management\asset-management\src\main\resources" />
       <recent name="D:\GitProject\fjyt-asset-management\SpringBootApplication\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fjyt.asset.management.asset.controller" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -73,7 +89,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681701288263</updated>
-      <workItem from="1681701289973" duration="1920000" />
+      <workItem from="1681701289973" duration="2781000" />
+      <workItem from="1681713171683" duration="2150000" />
     </task>
     <servers />
   </component>
@@ -90,5 +107,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -10,11 +10,13 @@
     <version>1.0</version>
     <modules>
         <module>asset-management</module>
+        <module>asset-management-asset</module>
     </modules>
 
     <!-- 版本管理 -->
     <properties>
         <fjyt.version>1.0</fjyt.version>
+        <asset.management.asset.version>1.0</asset.management.asset.version>
         <spring-boot.version>2.7.7</spring-boot.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
@@ -79,6 +81,12 @@
                 <groupId>com.alibaba.fastjson2</groupId>
                 <artifactId>fastjson2</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fjyt</groupId>
+                <artifactId>asset-management-asset</artifactId>
+                <version>${asset.management.asset.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
