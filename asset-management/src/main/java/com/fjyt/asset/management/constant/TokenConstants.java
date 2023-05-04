@@ -1,0 +1,23 @@
+package com.fjyt.asset.management.constant;
+
+/**
+ * @author keQiLong
+ * @date 2023年05月04日 9:05
+ * Token的key常量
+ */
+public class TokenConstants {
+    /**
+     * 令牌自定义标识
+     */
+    public static final String AUTHENTICATION = "Authorization";
+
+    /**
+     * 令牌前缀
+     */
+    public static final String PREFIX = "Bearer ";
+
+    /**
+     * 令牌秘钥
+     */
+    public final static String SECRET = "abcdefghijklmnopqrstuvwxyz";
+}

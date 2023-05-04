@@ -10,13 +10,11 @@
     <version>1.0</version>
     <modules>
         <module>asset-management</module>
-        <module>asset-management-asset</module>
     </modules>
 
     <!-- 版本管理 -->
     <properties>
         <fjyt.version>1.0</fjyt.version>
-        <asset.management.asset.version>1.0</asset.management.asset.version>
         <spring-boot.version>2.7.7</spring-boot.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
@@ -25,6 +23,10 @@
         <pagehelper.boot.version>1.4.6</pagehelper.boot.version>
         <poi.version>4.1.2</poi.version>
         <fastjson.version>2.0.25</fastjson.version>
+        <druid.version>1.2.16</druid.version>
+        <mybatis.version>3.5.13</mybatis.version>
+        <mysql.version>8.0.29</mysql.version>
+        <jjwt.version>0.9.1</jjwt.version>
     </properties>
     <!--以依赖管理-->
     <dependencyManagement>
@@ -82,11 +84,29 @@
                 <artifactId>fastjson2</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-
+            <!-- druid -->
             <dependency>
-                <groupId>com.fjyt</groupId>
-                <artifactId>asset-management-asset</artifactId>
-                <version>${asset.management.asset.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--   mysql  -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--  mybatis  -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!-- JWT -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

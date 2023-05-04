@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjyt.asset.management.mapper.AssetMapper">
+
+   <select id="list" parameterType="AssetDTO" resultType="AssetVO">
+        select a.id,a.asset_code,a.asset_name,a.asset_specifications,a.asset_classify,
+               a.asset_unit,a.asset_price,a.remark,a.create_user,a.create_time,
+               a.create_way,a.update_user,a.update_time,a.asset_have_user,
+               a.asset_have_time,a.status
+        from asset a
+        <where>
+            a.asset_del = '0'
+            <if test="assetName != null and assetName != ''">
+                and a.asset_name like concat('%',#{assetName},'%')
+            </if>
+            <if test="assetSpecifications != null and assetSpecifications != ''">
+                and a.asset_specifications like concat('%',#{assetSpecifications},'%')
+            </if>
+            <if test="assetUnit != null and assetUnit != ''">
+                and a.asset_unit = #{assetUnit}
+            </if>
+            <if test="assetClassify != null">
+                and a.asset_classify = #{assetClassify}
+            </if>
+            <if test="createUser != null and createUser != ''">
+                and a.create_user like concat('%',#{createUser},'%')
+            </if>
+            <if test="createTime != null">
+                and a.create_time = #{createTime}
+            </if>
+            <if test="createWay != null">
+                and a.create_way = #{createWay}
+            </if>
+            <if test="updateUser != null and updateUser != ''">
+                and a.update_user like concat('%',#{updateUser},'%')
+            </if>
+            <if test="updateTime != null">
+                and a.update_time = #{updateTime}
+            </if>
+            <if test="status != null">
+                and a.status = #{status}
+            </if>
+        </where>
+   </select>
+
+    <insert id="add" parameterType="Asset">
+        insert into asset(
+            <if test="assetCode != null and assetCode != ''">asset_code,</if>
+            <if test="assetName != null and assetName != ''">asset_name,</if>
+            <if test="assetSpecifications !=null and assetSpecifications != ''">asset_specifications,</if>
+            <if test="assetUnit != null and assetUnit != ''">asset_classify,</if>
+            <if test="assetClassify != null">asset_unit,</if>
+            <if test="assetPrice != null">asset_price,</if>
+            <if test="assetNotes != null and assetNotes != ''">asset_notes,</if>
+            <if test="createUser != null and createUser != ''">create_user,</if>
+            <if test="createWay != null">create_way,</if>
+            <if test="updateUser != null and updateUser != ''">update_user,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="assetHaveUser != null and assetHaveUser != ''">asset_have_user,</if>
+            <if test="assetHaveTime != null">asset_have_time,</if>
+            <if test="status != null">status,</if>
+            <if test="assetDel != null">asset_del</if>
+            create_time
+        )values (
+            <if test="assetCode != null and assetCode != ''">#{assetCode}</if>
+            <if test="assetName != null and assetName != ''">#{assetName}</if>
+            <if test="assetSpecifications !=null and assetSpecifications != ''">#{assetSpecifications}</if>
+            <if test="assetUnit != null and assetUnit != ''">#{assetUnit}</if>
+            <if test="assetClassify != null">#{assetClassify}</if>
+            <if test="assetPrice != null">#{assetPrice}</if>
+            <if test="assetNotes != null and assetNotes != ''">#{assetNotes}</if>
+            <if test="createUser != null and createUser != ''">#{createUser}</if>
+            <if test="createWay != null">#{createWay}</if>
+            <if test="updateUser != null and updateUser != ''">#{updateUser}</if>
+            <if test="updateTime != null">#{updateTime}</if>
+            <if test="assetHaveUser != null and assetHaveUser != ''">#{assetHaveUser}</if>
+            <if test="assetHaveTime != null">#{assetHaveTime}</if>
+            <if test="status != null">#{status}</if>
+            <if test="assetDel != null">#{assetDel}</if>
+            #{createTime}
+        )
+    </insert>
+</mapper>
