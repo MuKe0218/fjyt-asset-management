@@ -38,34 +38,13 @@ public class AssetClassifyServiceImpl implements AssetClassifyService {
     }
 
     /**
-     * 新增分类
-     * @param assetClassifyDTO
+     * 根据分类id获取分类详情
+     * @param classifyId
      * @return
      */
     @Override
-    public R assetClassifyAdd(AssetClassifyDTO assetClassifyDTO) {
-        String userName = JwtUtils.getUserName(TokenUtils.getToken());
-        AssetClassify assetClassify = new AssetClassify();
-        assetClassify.setClassifyName(assetClassifyDTO.getClassifyName());
-        assetClassify.setOrderNum(assetClassifyDTO.getOrderNum());
-        assetClassify.setCreateUser(userName);
-        assetClassify.setCreateTime(DateUtils.getNowDate());
-        assetClassify.setUpdateUser(userName);
-        assetClassify.setUpdateTime(DateUtils.getNowDate());
-        if (!StringUtils.isNotNull(assetClassifyDTO.getParentId())){
-            assetClassify.setParentId(assetClassifyDTO.getParentId());
-            String ancestors = assetClassifyMapper.getAncestorsByClassifyId(assetClassifyDTO.getParentId());
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(ancestors).append(",").append(assetClassifyDTO.getParentId());
-            assetClassify.setAncestors(stringBuffer.toString());
-        }
-        //校验分类是否已存在
-        AssetClassify checkAssetClassify = this.checkAssetClassifyByName(assetClassifyDTO.getClassifyName());
-        if (StringUtils.isNotNull(checkAssetClassify)){
-            throw new ClassifyException(Constants.FAIL,"此分类已存在");
-        }
-        assetClassifyMapper.assetClassifyAdd(assetClassify);
-        return R.ok("新增分类成功");
+    public R assetClassifyByClassifyId(Long classifyId) {
+        return R.ok(assetClassifyMapper.assetClassifyByClassifyId(classifyId));
     }
 
     /**
@@ -79,6 +58,68 @@ public class AssetClassifyServiceImpl implements AssetClassifyService {
     }
 
     /**
+     * 新增分类
+     * @param assetClassifyDTO
+     * @return
+     */
+    @Override
+    public R assetClassifyAdd(AssetClassifyDTO assetClassifyDTO) {
+        String userName = JwtUtils.getUserName(TokenUtils.getToken());
+        AssetClassify assetClassify = new AssetClassify();
+        //校验分类名称是否已存在
+        AssetClassify checkAssetClassify = this.checkAssetClassifyByName(assetClassifyDTO.getClassifyName());
+        if (StringUtils.isNotNull(checkAssetClassify)){
+            throw new ClassifyException(Constants.FAIL,"此分类已存在");
+        }
+        //判断添加的分类是否有父类
+        if (StringUtils.isNotNull(assetClassifyDTO.getParentId())){
+            String ancestors = ancestorsMontage(assetClassifyDTO.getParentId());
+            assetClassify.setParentId(assetClassifyDTO.getParentId());
+            assetClassify.setAncestors(ancestors);
+        }
+        assetClassify.setClassifyName(assetClassifyDTO.getClassifyName());
+        assetClassify.setOrderNum(assetClassifyDTO.getOrderNum());
+        assetClassify.setCreateUser(userName);
+        assetClassify.setCreateTime(DateUtils.getNowDate());
+        assetClassify.setUpdateUser(userName);
+        assetClassify.setUpdateTime(DateUtils.getNowDate());
+        assetClassifyMapper.assetClassifyAdd(assetClassify);
+        return R.ok("新增分类成功");
+    }
+
+    /**
+     * 编辑分类信息
+     * @param assetClassifyDTO
+     * @return
+     */
+    @Override
+    public R assetClassifyUpdate(AssetClassifyDTO assetClassifyDTO) {
+        String userName = JwtUtils.getUserName(TokenUtils.getToken());
+        AssetClassify assetClassify = new AssetClassify();
+        // 根据分类id查询修改前分类对象
+        AssetClassifyVO oldAssetClassify = assetClassifyMapper.assetClassifyByClassifyId(assetClassifyDTO.getClassifyId());
+        //根据分类名称查询分类
+        AssetClassify checkAssetClassify = this.checkAssetClassifyByName(assetClassifyDTO.getClassifyName());
+        // 判断修改名称是否已存在
+        if (!oldAssetClassify.getClassifyName().equals(assetClassifyDTO.getClassifyName()) && StringUtils.isNotNull(checkAssetClassify)){
+            throw new ClassifyException(Constants.FAIL,"此分类已存在");
+        }
+        //判断添加的分类是否有父类
+        if (StringUtils.isNotNull(assetClassifyDTO.getParentId())){
+            String ancestors = ancestorsMontage(assetClassifyDTO.getParentId());
+            assetClassify.setParentId(assetClassifyDTO.getParentId());
+            assetClassify.setAncestors(ancestors);
+        }
+        assetClassify.setClassifyId(assetClassifyDTO.getClassifyId());
+        assetClassify.setClassifyName(assetClassifyDTO.getClassifyName());
+        assetClassify.setOrderNum(assetClassifyDTO.getOrderNum());
+        assetClassify.setUpdateUser(userName);
+        assetClassify.setUpdateTime(DateUtils.getNowDate());
+        assetClassifyMapper.assetClassifyUpdate(assetClassify);
+        return R.ok("编辑成功");
+    }
+
+    /**
      * 删除分类
      * @param classifyId
      * @return
@@ -89,6 +130,18 @@ public class AssetClassifyServiceImpl implements AssetClassifyService {
         //删除分类
         assetClassifyMapper.assetClassifyDel(classifyId);
         return R.ok("删除成功");
+    }
+
+    /**
+     * 祖籍列表拼接
+     * @param parentId
+     * @return
+     */
+    public String ancestorsMontage(Long parentId){
+        String ancestors = assetClassifyMapper.getAncestorsByClassifyId(parentId);
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(ancestors).append(",").append(parentId);
+        return stringBuffer.toString();
     }
 
 }

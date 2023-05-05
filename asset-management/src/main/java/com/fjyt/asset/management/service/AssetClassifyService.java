@@ -21,11 +21,11 @@ public interface AssetClassifyService {
     public List<AssetClassifyVO> assetClassifyList(AssetClassify assetClassify);
 
     /**
-     * 新增分类
-     * @param assetClassifyDTO
+     * 根据分类id获取分类详情
+     * @param classifyId
      * @return
      */
-    public R assetClassifyAdd(AssetClassifyDTO assetClassifyDTO);
+    public R assetClassifyByClassifyId(Long classifyId);
 
     /**
      * 校验分类是否已存在
@@ -33,6 +33,20 @@ public interface AssetClassifyService {
      * @return
      */
     public AssetClassify checkAssetClassifyByName(String classifyName);
+
+    /**
+     * 新增分类
+     * @param assetClassifyDTO
+     * @return
+     */
+    public R assetClassifyAdd(AssetClassifyDTO assetClassifyDTO);
+
+    /**
+     * 编辑分类信息
+     * @param assetClassifyDTO
+     * @return
+     */
+    public R assetClassifyUpdate(AssetClassifyDTO assetClassifyDTO);
 
     /**
      * 删除分类

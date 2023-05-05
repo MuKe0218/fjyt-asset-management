@@ -33,6 +33,15 @@ public class AssetClassifyController {
     }
 
     /**
+     * 根据分类id获取详情
+     * @param classifyId
+     * @return
+     */
+    @GetMapping("/{classifyId}")
+    public R classifyInfo(@PathVariable Long classifyId){
+        return assetClassifyService.assetClassifyByClassifyId(classifyId);
+    }
+    /**
      * 添加分类
      * @param assetClassifyDTO
      * @return
@@ -49,7 +58,7 @@ public class AssetClassifyController {
      */
     @PutMapping
     public R classifyUpdate(@RequestBody AssetClassifyDTO assetClassifyDTO){
-        return null;
+        return assetClassifyService.assetClassifyUpdate(assetClassifyDTO);
     }
 
     /**

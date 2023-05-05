@@ -16,31 +16,6 @@
         </where>
     </select>
 
-    <insert id="assetClassifyAdd" parameterType="AssetClassify">
-        insert into asset_classify
-        (
-            <if test="parentId != null and parentId != ''">parent_id,</if>
-            <if test="ancestors != null and ancestors != ''">ancestors,</if>
-            <if test="classifyName != null and classifyName != ''">classify_name,</if>
-            <if test="orderNum != null">order_num,</if>
-            <if test="createUser != null and createUser != ''">create_user,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateUser != null and updateUser != ''">update_user,</if>
-            <if test="updateTime != null">update_time</if>
-        )
-        values
-        (
-        <if test="parentId != null and parentId != ''">#{parentId},</if>
-        <if test="ancestors != null and ancestors != ''">#{ancestors},</if>
-        <if test="classifyName != null and classifyName != ''">#{classifyName},</if>
-        <if test="orderNum != null">#{orderNum},</if>
-        <if test="createUser != null and createUser != ''">#{createUser},</if>
-        <if test="createTime != null">#{createTime},</if>
-        <if test="updateUser != null and updateUser != ''">#{updateUser},</if>
-        <if test="updateTime != null">#{updateTime}</if>
-        )
-    </insert>
-
     <select id="checkAssetClassifyByName" parameterType="String" resultType="AssetClassify">
         select ac.classify_id,ac.parent_id,ac.ancestors,ac.classify_name,ac.order_num,
         ac.create_user,ac.create_time,ac.update_user,ac.update_time from asset_classify ac
@@ -55,6 +30,52 @@
         where classify_id = #{classifyId} and del_flag = '0'
     </select>
 
+    <select id="assetClassifyByClassifyId" parameterType="Long" resultType="AssetClassifyVO">
+        select ac.classify_id,ac.parent_id,ac.ancestors,ac.classify_name,ac.order_num,
+        ac.create_user,ac.create_time,ac.update_user,ac.update_time from asset_classify ac
+        where
+            ac.del_flag = '0'
+            and ac.classify_id = #{classifyId}
+    </select>
+
+    <insert id="assetClassifyAdd" parameterType="AssetClassify">
+        insert into asset_classify
+        (
+        <if test="parentId != null and parentId != ''">parent_id,</if>
+        <if test="ancestors != null and ancestors != ''">ancestors,</if>
+        <if test="classifyName != null and classifyName != ''">classify_name,</if>
+        <if test="orderNum != null">order_num,</if>
+        <if test="createUser != null and createUser != ''">create_user,</if>
+        <if test="createTime != null">create_time,</if>
+        <if test="updateUser != null and updateUser != ''">update_user,</if>
+        <if test="updateTime != null">update_time</if>
+        )
+        values
+        (
+        <if test="parentId != null and parentId != ''">#{parentId},</if>
+        <if test="ancestors != null and ancestors != ''">#{ancestors},</if>
+        <if test="classifyName != null and classifyName != ''">#{classifyName},</if>
+        <if test="orderNum != null">#{orderNum},</if>
+        <if test="createUser != null and createUser != ''">#{createUser},</if>
+        <if test="createTime != null">#{createTime},</if>
+        <if test="updateUser != null and updateUser != ''">#{updateUser},</if>
+        <if test="updateTime != null">#{updateTime}</if>
+        )
+    </insert>
+
+    <update id="assetClassifyUpdate" parameterType="AssetClassify">
+        update asset_classify
+        <set>
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            <if test="ancestors != null and ancestors != ''">ancestors = #{ancestors},</if>
+            <if test="classifyName != null and classifyName != ''">classify_name = #{classifyName},</if>
+            <if test="orderNum != null">order_num = #{orderNum},</if>
+            <if test="updateUser != null and updateUser != ''">update_user = #{updateUser},</if>
+            update_time = #{updateTime}
+        </set>
+        where classify_id = #{classifyId}
+    </update>
+
     <update id="assetClassifyDel" parameterType="Long">
         update asset_classify
         <set>
@@ -62,4 +83,5 @@
         </set>
         where classify_id = #{classifyId}
     </update>
+
 </mapper>

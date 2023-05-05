@@ -14,6 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AssetClassifyDTO {
     /**
+     * 分类id
+     */
+    private Long classifyId;
+    /**
      * 分类父ID
      */
     private Long parentId;

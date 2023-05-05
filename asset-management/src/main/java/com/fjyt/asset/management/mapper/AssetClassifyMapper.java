@@ -21,14 +21,6 @@ public interface AssetClassifyMapper {
      * @return
      */
     public List<AssetClassifyVO> assetClassifyList(AssetClassify assetClassify);
-
-    /**
-     * 新增分类
-     * @param assetClassify
-     * @return
-     */
-    public int assetClassifyAdd(AssetClassify assetClassify);
-
     /**
      * 校验分类是否已存在
      * @param classifyName
@@ -42,6 +34,27 @@ public interface AssetClassifyMapper {
      * @return
      */
     public String getAncestorsByClassifyId(@Param("classifyId") Long classifyId);
+
+    /**
+     * 根据分类id获取分类详情
+     * @param classifyId
+     * @return
+     */
+    public AssetClassifyVO assetClassifyByClassifyId(@Param("classifyId") Long classifyId);
+
+    /**
+     * 新增分类
+     * @param assetClassify
+     * @return
+     */
+    public int assetClassifyAdd(AssetClassify assetClassify);
+
+    /**
+     * 编辑分类
+     * @param assetClassify
+     */
+    public void assetClassifyUpdate(AssetClassify assetClassify);
+
 
     /**
      * 删除分类
