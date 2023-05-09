@@ -4,6 +4,7 @@ import com.fjyt.asset.management.POJO.DO.Asset;
 import com.fjyt.asset.management.POJO.DTO.AssetDTO;
 import com.fjyt.asset.management.POJO.R;
 import com.fjyt.asset.management.POJO.VO.AssetVO;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -21,10 +22,31 @@ public interface AssetService {
     public List<AssetVO> list(AssetDTO assetDTO);
 
     /**
-     * 新增资产
-     * @param asset
+     * 根据id获取资产详情
+     * @param id
      * @return
      */
-    public R add(Asset asset);
+    public R getAssetById(Long id);
+
+    /**
+     * 新增资产
+     * @param assetDTO
+     * @return
+     */
+    public R add(AssetDTO assetDTO);
+
+    /**
+     * 修改资产
+     * @param assetDTO
+     * @return
+     */
+    public R update(AssetDTO assetDTO);
+
+    /**
+     * 根据assetId删除资产
+     * @param id
+     * @return
+     */
+    public R delete(Long id);
 
 }

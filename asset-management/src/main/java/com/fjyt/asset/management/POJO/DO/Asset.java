@@ -39,7 +39,7 @@ public class Asset implements Serializable {
     /**
      * 资产分类
      */
-    private Long assetClassify;
+    private Long classifyId;
     /**
      * 资产价格
      */
@@ -68,14 +68,6 @@ public class Asset implements Serializable {
      * 修改时间
      */
     private Date updateTime;
-    /**
-     * 资产使用/借用/报修人
-     */
-    private String assetHaveUser;
-    /**
-     * 资产使用/借用/报修时间
-     */
-    private Date assetHaveTime;
     /**
      * 资产状态 0：空闲；1：使用中；2：借用中；3：审批中；4：维修中；5：报废
      */

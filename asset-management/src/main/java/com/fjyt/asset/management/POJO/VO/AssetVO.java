@@ -28,9 +28,13 @@ public class AssetVO {
      */
     private String assetSpecifications;
     /**
+     * 分类id
+     */
+    private Long classifyId;
+    /**
      * 资产分类
      */
-    private String assetClassify;
+    private String classifyName;
     /**
      * 资产计量单位
      */

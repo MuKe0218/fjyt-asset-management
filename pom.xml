@@ -27,6 +27,7 @@
         <mybatis.version>3.5.13</mybatis.version>
         <mysql.version>8.0.29</mysql.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <redis.version>2.7.0</redis.version>
     </properties>
     <!--以依赖管理-->
     <dependencyManagement>
@@ -107,6 +108,12 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+            <!--  redis -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${redis.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

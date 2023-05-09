@@ -23,18 +23,28 @@
       <change beforePath="$PROJECT_DIR$/../config/dev.env.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/prod.env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/AssetClassifyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/AssetClassifyDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetClassifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetClassifyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetClassifyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetClassifyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetClassifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetClassifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetClassifyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetClassifyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetClassifyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetClassifyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DTO/AssetClassifyDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DTO/AssetClassifyDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetClassifyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetClassifyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetClassifyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetClassifyMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetClassifyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetClassifyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetClassifyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetClassifyServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetClassifyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetClassifyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DO/Asset.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DO/Asset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/AssetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/AssetDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/VO/AssetVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/VO/AssetVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/enums/AssetEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/enums/AssetStatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DO/Asset.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DO/Asset.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DTO/AssetDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DTO/AssetDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/VO/AssetVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/VO/AssetVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/enums/AssetEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetService.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
@@ -53,8 +63,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -90,10 +100,13 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -109,19 +122,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AssetManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="asset-management" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.fjyt.asset.management.AssetManagementApplication" />
@@ -148,7 +148,10 @@
       <workItem from="1682578899700" duration="10748000" />
       <workItem from="1682641758633" duration="16666000" />
       <workItem from="1683160510805" duration="23716000" />
-      <workItem from="1683246749767" duration="2618000" />
+      <workItem from="1683246749767" duration="23178000" />
+      <workItem from="1683332763515" duration="18853000" />
+      <workItem from="1683506411729" duration="12559000" />
+      <workItem from="1683593358029" duration="484000" />
     </task>
     <servers />
   </component>

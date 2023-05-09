@@ -5,7 +5,7 @@ package com.fjyt.asset.management.enums;
  * @date 2023年04月27日 15:53
  * 资产状态枚举
  */
-public enum AssetEnum {
+public enum AssetStatusEnum {
 
     IDLE("0","空闲"),USE("1","使用中"),BORROW("2","借用中"),EXAMINE_AND_APPROVE("3","审批中"),
     MAINTENANCE("4","维修中"),SCRAP("5","报废");
@@ -13,7 +13,7 @@ public enum AssetEnum {
     private final String code;
     private final String info;
 
-    AssetEnum(String code, String info)
+    AssetStatusEnum(String code, String info)
     {
         this.code = code;
         this.info = info;

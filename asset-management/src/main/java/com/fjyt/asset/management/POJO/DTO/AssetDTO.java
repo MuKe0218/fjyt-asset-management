@@ -15,6 +15,14 @@ import java.util.Date;
 @NoArgsConstructor
 public class AssetDTO {
     /**
+     * 资产id
+     */
+    private Long id;
+    /**
+     * 资产流水号
+     */
+    private String assetCode;
+    /**
      * 资产名称
      */
     private String assetName;
@@ -29,15 +37,27 @@ public class AssetDTO {
     /**
      * 资产分类
      */
-    private Long assetClassify;
+    private Long classifyId;
+    /**
+     * 资产价格
+     */
+    private Float assetPrice;
+    /**
+     * 资产备注
+     */
+    private String remark;
     /**
      * 资产创建人
      */
     private String createUser;
     /**
-     * 资产创建时间
+     * 搜索资产创建开始时间
      */
-    private Date createTime;
+    private String beginCreateTime;
+    /**
+     * 搜索资产创建结束时间
+     */
+    private String endCreateTime;
     /**
      * 资产创建方式 0：手动创建；1：关联钉钉采购申请自动创建
      */
@@ -47,9 +67,13 @@ public class AssetDTO {
      */
     private String updateUser;
     /**
-     * 修改时间
+     * 搜索修改开始时间
      */
-    private Date updateTime;
+    private String beginUpdateTime;
+    /**
+     * 搜索修改开始时间
+     */
+    private String endUpdateTime;
     /**
      * 资产使用/借用/报修人
      */
