@@ -56,7 +56,6 @@ public class FileController {
     @GetMapping("/{assetCode}")
     public String imageLook (HttpServletResponse response,@PathVariable String assetCode) {
         String path = assetMapper.getAssetPicturePath(assetCode);
-        System.out.println(path);
         if (path == null){
             return "fail";
         }

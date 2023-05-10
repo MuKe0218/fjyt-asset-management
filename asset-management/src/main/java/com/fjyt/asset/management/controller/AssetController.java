@@ -2,6 +2,7 @@ package com.fjyt.asset.management.controller;
 
 import com.fjyt.asset.management.POJO.DO.Asset;
 import com.fjyt.asset.management.POJO.DTO.AssetDTO;
+import com.fjyt.asset.management.POJO.DTO.AssetQueryDTO;
 import com.fjyt.asset.management.POJO.TableDataInfo;
 import com.fjyt.asset.management.POJO.VO.AssetVO;
 import com.fjyt.asset.management.service.AssetService;
@@ -43,13 +44,13 @@ public class AssetController {
     private AssetService assetService;
     /**
      * 获取资产信息列表
-     * @param assetDTO
+     * @param assetQueryDTO
      * @return
      */
     @GetMapping("/list")
-    public TableDataInfo list(AssetDTO assetDTO){
-        PageHelper.startPage(assetDTO.getPageNum(),assetDTO.getPageSize());
-        List<AssetVO>  list = assetService.list(assetDTO);
+    public TableDataInfo list(AssetQueryDTO assetQueryDTO){
+        PageHelper.startPage(assetQueryDTO.getPageNum(),assetQueryDTO.getPageSize());
+        List<AssetVO>  list = assetService.list(assetQueryDTO);
         return new PageHelperUtil().resultInfo(list);
     }
 

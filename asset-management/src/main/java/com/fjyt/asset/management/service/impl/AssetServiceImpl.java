@@ -2,6 +2,7 @@ package com.fjyt.asset.management.service.impl;
 
 import com.fjyt.asset.management.POJO.DO.Asset;
 import com.fjyt.asset.management.POJO.DTO.AssetDTO;
+import com.fjyt.asset.management.POJO.DTO.AssetQueryDTO;
 import com.fjyt.asset.management.POJO.VO.AssetVO;
 import com.fjyt.asset.management.constant.SerialNumberConstants;
 import com.fjyt.asset.management.mapper.AssetClassifyMapper;
@@ -28,11 +29,11 @@ public class AssetServiceImpl implements AssetService {
     private AssetClassifyMapper assetClassifyMapper;
     /**
      * 查询资产信息列表
-     * @param assetDTO
+     * @param assetQueryDTO
      * @return
      */
-    public List<AssetVO> list(AssetDTO assetDTO) {
-        return assetMapper.list(assetDTO);
+    public List<AssetVO> list(AssetQueryDTO assetQueryDTO) {
+        return assetMapper.list(assetQueryDTO);
     }
 
     /**

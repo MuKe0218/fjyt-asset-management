@@ -2,6 +2,7 @@ package com.fjyt.asset.management.service;
 
 import com.fjyt.asset.management.POJO.DO.Asset;
 import com.fjyt.asset.management.POJO.DTO.AssetDTO;
+import com.fjyt.asset.management.POJO.DTO.AssetQueryDTO;
 import com.fjyt.asset.management.POJO.R;
 import com.fjyt.asset.management.POJO.VO.AssetVO;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +17,10 @@ import java.util.List;
 public interface AssetService {
     /**
      * 查询资产信息列表
-     * @param assetDTO
+     * @param assetQueryDTO
      * @return
      */
-    public List<AssetVO> list(AssetDTO assetDTO);
+    public List<AssetVO> list(AssetQueryDTO assetQueryDTO);
 
     /**
      * 根据id获取资产详情

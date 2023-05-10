@@ -1,4 +1,4 @@
-package com.fjyt.asset.management.POJO.DTO;
+package com.fjyt.asset.management.POJO.VO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,24 +8,37 @@ import java.util.Date;
 
 /**
  * @author keQiLong
- * @date 2023年04月27日 16:29
+ * @date 2023年05月10日 14:38
+ * 资产详情
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AssetDTO {
+public class AssetDetailVO {
     /**
-     * 资产id
+     * 资产Id
      */
     private Long id;
     /**
-     * 资产流水号
+     * 资产编码
      */
     private String assetCode;
     /**
      * 资产名称
      */
     private String assetName;
+    /**
+     * 分类id
+     */
+    private Long classifyId;
+    /**
+     * 资产分类
+     */
+    private String classifyName;
+    /**
+     * 资产状态 0：空闲；1：使用中；2：借用中；3：审批中；4：维修中；5：报废
+     */
+    private String status;
     /**
      * 资产规格
      */
@@ -34,10 +47,6 @@ public class AssetDTO {
      * 资产计量单位
      */
     private String assetUnit;
-    /**
-     * 资产分类
-     */
-    private Long classifyId;
     /**
      * 资产价格
      */
@@ -51,7 +60,15 @@ public class AssetDTO {
      */
     private String createWay;
     /**
-     * 资产状态 0：空闲；1：使用中；2：借用中；3：审批中；4：维修中；5：报废
+     * 资产创建人
      */
-    private String status;
+    private String createUser;
+    /**
+     * 资产创建时间
+     */
+    private Date createTime;
+    /**
+     * 流动信息
+     */
+//    private List<> assetFlows;
 }

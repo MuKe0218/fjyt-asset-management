@@ -28,10 +28,6 @@ public class AssetVO {
      */
     private String assetSpecifications;
     /**
-     * 分类id
-     */
-    private Long classifyId;
-    /**
      * 资产分类
      */
     private String classifyName;
@@ -67,14 +63,6 @@ public class AssetVO {
      * 修改时间
      */
     private Date updateTime;
-    /**
-     * 资产使用/借用/报修人
-     */
-    private String assetHaveUser;
-    /**
-     * 资产使用/借用/报修时间
-     */
-    private Date assetHaveTime;
     /**
      * 资产状态 0：空闲；1：使用中；2：借用中；3：审批中；4：维修中；5：报废
      */

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.AssetMapper">
 
-   <select id="list" parameterType="AssetDTO" resultType="AssetVO">
+   <select id="list" parameterType="AssetQueryDTO" resultType="AssetVO">
         select a.id,a.asset_code,a.asset_name,a.asset_specifications,
                a.asset_unit,a.asset_price,a.remark,a.create_user,a.create_time,
                a.create_way,a.update_user,a.update_time,a.status,ac.classify_name
@@ -12,23 +12,17 @@
         left join asset_classify ac on a.classify_id = ac.classify_id
         <where>
             a.asset_del = '0'
+            <if test="id != null">
+                and a.id = #{id}
+            </if>
             <if test="assetCode != null and assetCode != ''">
-                and a.ssset_code = #{assetCode}
+                and a.ssset_code like concat('%',#{assetCode},'%')
             </if>
             <if test="assetName != null and assetName != ''">
                 and a.asset_name like concat('%',#{assetName},'%')
             </if>
-            <if test="assetSpecifications != null and assetSpecifications != ''">
-                and a.asset_specifications like concat('%',#{assetSpecifications},'%')
-            </if>
-            <if test="assetUnit != null and assetUnit != ''">
-                and a.asset_unit = #{assetUnit}
-            </if>
             <if test="classifyId != null">
                 and a.classify_id = #{classifyId}
-            </if>
-            <if test="createUser != null and createUser != ''">
-                and a.create_user like concat('%',#{createUser},'%')
             </if>
             <if test="beginCreateTime != null and beginCreateTime != ''">
                 and date_format(a.create_time,'%y%m%d') &gt;= date_format(#{beginCreateTime},'%y%m%d')
@@ -45,9 +39,6 @@
             <if test="createWay != null">
                 and a.create_way = #{createWay}
             </if>
-            <if test="updateUser != null and updateUser != ''">
-                and a.update_user like concat('%',#{updateUser},'%')
-            </if>
             <if test="status != null">
                 and a.status = #{status}
             </if>
@@ -55,12 +46,9 @@
         order by a.update_time desc,a.create_time desc
    </select>
 
-    <select id="assetById" parameterType="Long" resultType="AssetVO">
-        select a.id,a.asset_code,a.asset_name,a.asset_specifications,
-        a.asset_unit,a.asset_price,a.remark,a.create_user,a.create_time,
-        a.create_way,a.update_user,a.update_time,
-        a.status,a.classify_id,
-        ac.classify_name
+    <select id="assetById" parameterType="Long" resultType="AssetDetailVO">
+        select a.id,a.asset_code,a.asset_name,a.classify_id,ac.classify_name,a.status,a.asset_specifications,
+        a.asset_unit,a.asset_price,a.remark,a.create_way,a.create_user,a.create_time
         from asset a
         left join asset_classify ac on a.classify_id = ac.classify_id
         where

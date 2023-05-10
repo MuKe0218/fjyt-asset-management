@@ -23,13 +23,18 @@
       <change beforePath="$PROJECT_DIR$/../config/dev.env.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/prod.env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetUseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetUseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/AssetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/AssetDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/VO/AssetVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/VO/AssetVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/utils/AssetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/utils/AssetUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetUseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetUseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
@@ -150,7 +155,7 @@
       <workItem from="1683332763515" duration="18853000" />
       <workItem from="1683506411729" duration="12559000" />
       <workItem from="1683593358029" duration="9979000" />
-      <workItem from="1683678312743" duration="12150000" />
+      <workItem from="1683678312743" duration="15355000" />
     </task>
     <servers />
   </component>
