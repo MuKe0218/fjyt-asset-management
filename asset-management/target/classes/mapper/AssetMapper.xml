@@ -72,6 +72,23 @@
         select picture_path from asset_picture where asset_code = #{assetCode}
     </select>
 
+    <select id="getAssetNameList" parameterType="List" resultType="String">
+        select asset_name from asset where id
+        <foreach collection="strings" index="index" item="item" open="(" separator="," close=")">
+        #{item}
+        </foreach>
+    </select>
+
+    <select id="getAssetByCodes" parameterType="List" resultType="AssetVO">
+        select a.asset_code,a.asset_name,a.asset_specifications,ac.ac.classify_name
+               from asset a
+                left join asset_classify ac on a.classify_id = ac.classify_id
+        where a.id
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
     <insert id="add" parameterType="Asset">
         insert into asset(
             <if test="assetCode != null and assetCode != ''">asset_code,</if>
@@ -124,6 +141,12 @@
             update_time = #{updateTime}
         </set>
         where id = #{id}
+    </update>
+
+    <update id="updateStatusList" parameterType="UpdateStatus">
+        <foreach collection="updateStatus.collect" item="item" separator=",">
+            update asset set status = #{updateStatus.status} where asset_code = #{item}
+        </foreach>
     </update>
 
     <update id="delete" parameterType="Long">

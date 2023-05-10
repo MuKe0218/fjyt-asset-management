@@ -3,6 +3,7 @@ package com.fjyt.asset.management.mapper;
 import com.fjyt.asset.management.POJO.DO.Asset;
 import com.fjyt.asset.management.POJO.DO.AssetPicture;
 import com.fjyt.asset.management.POJO.DTO.AssetDTO;
+import com.fjyt.asset.management.POJO.DTO.UpdateStatus;
 import com.fjyt.asset.management.POJO.VO.AssetVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -29,6 +30,20 @@ public interface AssetMapper {
     public AssetVO assetById(Long id);
 
     /**
+     * 获取资产名称list
+     * @param strings
+     * @return
+     */
+    public List<String> getAssetNameList(List<String> strings);
+
+    /**
+     * 根据codes查询list
+     * @param list
+     * @return
+     */
+    public List<AssetVO> getAssetByCodes(List<String> list);
+
+    /**
      * 新增资产
      * @param asset
      */
@@ -39,6 +54,11 @@ public interface AssetMapper {
      * @param asset
      */
     public void update(Asset asset);
+
+    /**
+     * 批量修改资产状态
+     */
+    public void updateStatusList(UpdateStatus updateStatus);
 
     /**
      * 删除资产

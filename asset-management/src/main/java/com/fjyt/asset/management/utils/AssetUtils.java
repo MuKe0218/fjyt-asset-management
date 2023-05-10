@@ -2,6 +2,7 @@ package com.fjyt.asset.management.utils;
 
 import com.fjyt.asset.management.enums.AssetCreateWayEnum;
 import com.fjyt.asset.management.enums.AssetStatusEnum;
+import com.fjyt.asset.management.enums.AssetUseEnum;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -64,7 +65,41 @@ public class AssetUtils {
         }
         return list;
     }
-
+    /**
+     * 资产状态信息封装
+     * @return
+     */
+    public  static List<Map<String,String>> useStatusList(){
+        List<Map<String,String>> list = new ArrayList<Map<String,String>>();
+        for (int i=0 ;i<6;i++){
+            Map map = new Hashtable();
+            String label = null;
+            String value = null;
+            String type = null;
+            switch (i){
+                case 0:
+                    value = AssetUseEnum.USE.getCode();
+                    label = AssetUseEnum.USE.getInfo();
+                    type = "";
+                    break;
+                case 1:
+                    value = AssetUseEnum.EXAMINE_AND_APPROVE.getCode();
+                    label = AssetUseEnum.EXAMINE_AND_APPROVE.getInfo();
+                    type = "danger";
+                    break;
+                default:
+                    value = AssetUseEnum.EXAMINE_AND_APPROVE_NO.getCode();
+                    label =  AssetUseEnum.EXAMINE_AND_APPROVE_NO.getInfo();
+                    type = "info";
+                    break;
+            }
+            map.put("value",value);
+            map.put("label",label);
+            map.put("type",type);
+            list.add(map);
+        }
+        return list;
+    }
     /**
      * 创建方式封装
      * @return
