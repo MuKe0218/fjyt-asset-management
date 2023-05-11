@@ -47,11 +47,20 @@ public class AssetController {
      * @param assetQueryDTO
      * @return
      */
-    @GetMapping("/list")
+    @GetMapping
     public TableDataInfo list(AssetQueryDTO assetQueryDTO){
         PageHelper.startPage(assetQueryDTO.getPageNum(),assetQueryDTO.getPageSize());
         List<AssetVO>  list = assetService.list(assetQueryDTO);
         return new PageHelperUtil().resultInfo(list);
+    }
+    /**
+     * 获取资产信息列表
+     * @param assetQueryDTO
+     * @return
+     */
+    @GetMapping("/list")
+    public R listWithoutPage(AssetQueryDTO assetQueryDTO){
+        return R.ok(assetService.list(assetQueryDTO));
     }
 
     /**

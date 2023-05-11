@@ -16,7 +16,7 @@
                 and a.id = #{id}
             </if>
             <if test="assetCode != null and assetCode != ''">
-                and a.ssset_code like concat('%',#{assetCode},'%')
+                and a.asset_code like concat('%',#{assetCode},'%')
             </if>
             <if test="assetName != null and assetName != ''">
                 and a.asset_name like concat('%',#{assetName},'%')
@@ -36,10 +36,10 @@
             <if test="endUpdateTime != null and endUpdateTime != ''">
                 and date_format(a.update_time,'%y%m%d') &lt;= date_format(#{endUpdateTime},'%y%m%d')
             </if>
-            <if test="createWay != null">
+            <if test="createWay != null and createWay != ''">
                 and a.create_way = #{createWay}
             </if>
-            <if test="status != null">
+            <if test="status != null and status != ''">
                 and a.status = #{status}
             </if>
         </where>
@@ -60,18 +60,18 @@
         select picture_path from asset_picture where asset_code = #{assetCode}
     </select>
 
-    <select id="getAssetNameList" parameterType="List" resultType="String">
-        select asset_name from asset where id
+    <select id="getAssetNameList" resultType="String">
+        select asset_name from asset where asset_code in
         <foreach collection="strings" index="index" item="item" open="(" separator="," close=")">
         #{item}
         </foreach>
     </select>
 
-    <select id="getAssetByCodes" parameterType="List" resultType="AssetVO">
-        select a.asset_code,a.asset_name,a.asset_specifications,ac.ac.classify_name
+    <select id="getAssetByCodes" resultType="AssetVO">
+        select a.asset_code,a.asset_name,a.asset_specifications,ac.classify_name
                from asset a
                 left join asset_classify ac on a.classify_id = ac.classify_id
-        where a.id
+        where asset_code in
         <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -132,8 +132,8 @@
     </update>
 
     <update id="updateStatusList" parameterType="UpdateStatus">
-        <foreach collection="updateStatus.collect" item="item" separator=",">
-            update asset set status = #{updateStatus.status} where asset_code = #{item}
+        <foreach collection="collect" item="item" separator=";">
+            update asset set status = #{status} where asset_code = #{item}
         </foreach>
     </update>
 

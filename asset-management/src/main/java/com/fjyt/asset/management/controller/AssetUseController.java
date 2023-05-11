@@ -3,10 +3,16 @@ package com.fjyt.asset.management.controller;
 import com.fjyt.asset.management.POJO.DTO.AssetUseDTO;
 import com.fjyt.asset.management.POJO.DTO.UseQueryDTO;
 import com.fjyt.asset.management.POJO.R;
+import com.fjyt.asset.management.POJO.TableDataInfo;
+import com.fjyt.asset.management.POJO.VO.AssetUseVO;
 import com.fjyt.asset.management.service.AssetUseService;
 import com.fjyt.asset.management.utils.AssetUtils;
+import com.fjyt.asset.management.utils.PageHelperUtil;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author keQiLong
@@ -26,8 +32,10 @@ public class AssetUseController {
      * @return
      */
     @GetMapping
-    public R useList(UseQueryDTO useQueryDTO){
-        return assetUseService.useList(useQueryDTO);
+    public TableDataInfo useList(UseQueryDTO useQueryDTO){
+        PageHelper.startPage(useQueryDTO.getPageNum(),useQueryDTO.getPageSize());
+        List<AssetUseVO> assetUseVOS = assetUseService.useList(useQueryDTO);
+        return new PageHelperUtil().resultInfo(assetUseVOS);
     }
 
     /**

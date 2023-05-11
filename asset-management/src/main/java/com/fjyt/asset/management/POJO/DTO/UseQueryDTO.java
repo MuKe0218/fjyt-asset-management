@@ -47,4 +47,12 @@ public class UseQueryDTO {
      * 创建结束时间
      */
     private String endCreateTime;
+    /**
+     * 分页pageNum
+     */
+    private int pageNum;
+    /**
+     * 分页pageSize
+     */
+    private int pageSize;
 }

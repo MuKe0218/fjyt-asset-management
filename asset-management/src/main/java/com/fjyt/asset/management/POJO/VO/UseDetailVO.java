@@ -48,4 +48,16 @@ public class UseDetailVO {
      * 资产列表
      */
     private List<AssetVO> assetSelectList;
+    /**
+     * 资产创建方式 0：手动创建；1：关联钉钉采购申请自动创建
+     */
+    private String createWay;
+    /**
+     * 资产创建人
+     */
+    private String createUser;
+    /**
+     * 资产创建时间
+     */
+    private Date createTime;
 }

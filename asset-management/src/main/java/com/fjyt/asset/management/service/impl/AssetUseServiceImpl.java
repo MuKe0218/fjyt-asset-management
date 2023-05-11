@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,14 +45,15 @@ public class AssetUseServiceImpl implements AssetUseService {
      * @return
      */
     @Override
-    public R useList(UseQueryDTO useQueryDTO) {
+    public  List<AssetUseVO> useList(UseQueryDTO useQueryDTO) {
         List<AssetUseVO> assetUseVOS = assetUseMapper.useList(useQueryDTO);
-        assetUseVOS.stream().forEach(assetUseVO -> {
-            List<String> strings = Arrays.asList(assetUseVO.getAssetCodes());
+        assetUseVOS.forEach(assetUseVO -> {
+            List<String> strings = Arrays.asList(assetUseVO.getAssetCodes().replace(" ","").split(","));
             List<String> assetNameList = assetMapper.getAssetNameList(strings);
-            assetUseVO.setAssetNames(assetNameList.toString());
+            String assetNames = assetNameList.toString();
+            assetUseVO.setAssetNames(assetNames.substring(1,assetNames.length()-1));
         });
-        return R.ok(assetUseVOS);
+        return assetUseVOS;
     }
 
     /**
@@ -62,7 +64,7 @@ public class AssetUseServiceImpl implements AssetUseService {
     @Override
     public R useListById(Long id) {
         UseDetailVO useDetailVO = assetUseMapper.useListById(id);
-        List<String> strings = Arrays.asList(useDetailVO.getAssetCodes());
+        List<String> strings = Arrays.asList(useDetailVO.getAssetCodes().replace(" ","").split(","));
         List<AssetVO> assetByCodes = assetMapper.getAssetByCodes(strings);
         useDetailVO.setAssetSelectList(assetByCodes);
         return R.ok(useDetailVO);
@@ -77,7 +79,6 @@ public class AssetUseServiceImpl implements AssetUseService {
     @Transactional(rollbackFor = Exception.class)
     public R addUse(AssetUseDTO assetUseDTO) {
         String userName = JwtUtils.getUserName(TokenUtils.getToken());
-        System.out.println(assetUseDTO);
         AssetUse assetUse = new AssetUse();
         assetUse.setUseCode(new SerialNumberUtils().createSerialNumber(SerialNumberConstants.ASSET_LY));
         assetUse.setUseUser(assetUseDTO.getUseUser());
@@ -90,7 +91,7 @@ public class AssetUseServiceImpl implements AssetUseService {
         // 取出资产list中的每个assetCode
         List<Asset> assetList = assetUseDTO.getAssetSelectList();
         List<String> collect = assetList.stream().map(Asset::getAssetCode).collect(Collectors.toList());
-        assetUse.setAssetCodes(collect.toString());
+        assetUse.setAssetCodes(collect.toString().substring(1,collect.toString().length()-1));
         // 新增领用
         assetUseMapper.addUse(assetUse);
         // 批量修改资产状态
@@ -110,6 +111,7 @@ public class AssetUseServiceImpl implements AssetUseService {
     public R updateUse(AssetUseDTO assetUseDTO) {
         String userName = JwtUtils.getUserName(TokenUtils.getToken());
         AssetUse assetUse = new AssetUse();
+        assetUse.setId(assetUseDTO.getId());
         assetUse.setUseUser(assetUseDTO.getUseUser());
         assetUse.setUseTime(assetUseDTO.getUseTime());
         assetUse.setRemark(assetUseDTO.getRemark());
@@ -118,11 +120,9 @@ public class AssetUseServiceImpl implements AssetUseService {
         // 取出资产list中的每个assetCode
         List<Asset> assetList = assetUseDTO.getAssetSelectList();
         List<String> collect = assetList.stream().map(Asset::getAssetCode).collect(Collectors.toList());
-        assetUse.setAssetCodes(collect.toString());
-        // 新增领用
-        assetUseMapper.addUse(assetUse);
+        assetUse.setAssetCodes(collect.toString().substring(1,collect.toString().length()-1));
         // 查询原来的
-        List<String> strings = Arrays.asList(assetUseMapper.useListById(assetUseDTO.getId()).getAssetCodes());
+        List<String> strings = Arrays.asList(assetUseMapper.useListById(assetUseDTO.getId()).getAssetCodes().replace(" ","").split(","));
         UpdateStatus updateStatus = new UpdateStatus();
         //先修改原有资产状态
         updateStatus.setStatus("0");
@@ -132,7 +132,8 @@ public class AssetUseServiceImpl implements AssetUseService {
         updateStatus.setStatus("1");
         updateStatus.setCollect(collect);
         assetMapper.updateStatusList(updateStatus);
-
+        // 修改领用
+        assetUseMapper.updateUse(assetUse);
         return R.ok("修改成功");
     }
 
@@ -143,6 +144,14 @@ public class AssetUseServiceImpl implements AssetUseService {
      */
     @Override
     public R deleteUseById(Long id) {
-        return null;
+        List<String> strings = Arrays.asList(assetUseMapper.useListById(id).getAssetCodes().replace(" ","").split(","));
+        UpdateStatus updateStatus = new UpdateStatus();
+        //先修改原有资产状态
+        updateStatus.setStatus("0");
+        updateStatus.setCollect(strings);
+        assetMapper.updateStatusList(updateStatus);
+        // 删除领用
+        assetUseMapper.deleteUseById(id);
+        return R.ok("删除成功");
     }
 }

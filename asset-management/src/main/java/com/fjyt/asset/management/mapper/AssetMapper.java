@@ -36,14 +36,14 @@ public interface AssetMapper {
      * @param strings
      * @return
      */
-    public List<String> getAssetNameList(List<String> strings);
+    public List<String> getAssetNameList(@Param("strings") List<String> strings);
 
     /**
      * 根据codes查询list
      * @param list
      * @return
      */
-    public List<AssetVO> getAssetByCodes(List<String> list);
+    public List<AssetVO> getAssetByCodes(@Param("list") List<String> list);
 
     /**
      * 新增资产

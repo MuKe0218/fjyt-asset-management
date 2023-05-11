@@ -40,7 +40,8 @@
 
     <select id="useListById" parameterType="Long" resultType="UseDetailVO">
         select au.id,au.use_code,au.use_user,au.use_time,
-               au.remark,au.asset_codes,au.status
+               au.remark,au.asset_codes,au.status,au.create_way,
+               au.create_user,au.create_time
         from asset_use au
         where id = #{id}
     </select>

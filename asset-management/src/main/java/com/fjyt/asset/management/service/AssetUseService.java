@@ -3,6 +3,9 @@ package com.fjyt.asset.management.service;
 import com.fjyt.asset.management.POJO.DTO.AssetUseDTO;
 import com.fjyt.asset.management.POJO.DTO.UseQueryDTO;
 import com.fjyt.asset.management.POJO.R;
+import com.fjyt.asset.management.POJO.VO.AssetUseVO;
+
+import java.util.List;
 
 /**
  * @author keQiLong
@@ -15,7 +18,7 @@ public interface AssetUseService {
      * @param useQueryDTO
      * @return
      */
-    public R useList (UseQueryDTO useQueryDTO);
+    public List<AssetUseVO> useList (UseQueryDTO useQueryDTO);
 
     /**
      * 根据id查询领用单详情

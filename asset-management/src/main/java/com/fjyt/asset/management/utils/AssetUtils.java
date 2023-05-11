@@ -71,7 +71,7 @@ public class AssetUtils {
      */
     public  static List<Map<String,String>> useStatusList(){
         List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-        for (int i=0 ;i<6;i++){
+        for (int i=0 ;i<3;i++){
             Map map = new Hashtable();
             String label = null;
             String value = null;
