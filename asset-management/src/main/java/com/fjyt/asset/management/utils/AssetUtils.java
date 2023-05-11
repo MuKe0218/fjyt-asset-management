@@ -1,5 +1,6 @@
 package com.fjyt.asset.management.utils;
 
+import com.fjyt.asset.management.enums.AssetBorrowEnum;
 import com.fjyt.asset.management.enums.AssetCreateWayEnum;
 import com.fjyt.asset.management.enums.AssetStatusEnum;
 import com.fjyt.asset.management.enums.AssetUseEnum;
@@ -66,12 +67,12 @@ public class AssetUtils {
         return list;
     }
     /**
-     * 资产状态信息封装
+     * 领用状态信息封装
      * @return
      */
     public  static List<Map<String,String>> useStatusList(){
         List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-        for (int i=0 ;i<3;i++){
+        for (int i=0 ;i<4;i++){
             Map map = new Hashtable();
             String label = null;
             String value = null;
@@ -87,10 +88,55 @@ public class AssetUtils {
                     label = AssetUseEnum.EXAMINE_AND_APPROVE.getInfo();
                     type = "danger";
                     break;
-                default:
+                case 2:
                     value = AssetUseEnum.EXAMINE_AND_APPROVE_NO.getCode();
                     label =  AssetUseEnum.EXAMINE_AND_APPROVE_NO.getInfo();
                     type = "info";
+                    break;
+                default:
+                    value = AssetUseEnum.STOCK_RETURN.getCode();
+                    label =  AssetUseEnum.STOCK_RETURN.getInfo();
+                    type = "success";
+                    break;
+            }
+            map.put("value",value);
+            map.put("label",label);
+            map.put("type",type);
+            list.add(map);
+        }
+        return list;
+    }
+    /**
+     * 借用状态信息封装
+     * @return
+     */
+    public  static List<Map<String,String>> borrowStatusList(){
+        List<Map<String,String>> list = new ArrayList<Map<String,String>>();
+        for (int i=0 ;i<4;i++){
+            Map map = new Hashtable();
+            String label = null;
+            String value = null;
+            String type = null;
+            switch (i){
+                case 0:
+                    value = AssetBorrowEnum.BORROW.getCode();
+                    label = AssetBorrowEnum.BORROW.getInfo();
+                    type = "";
+                    break;
+                case 1:
+                    value = AssetBorrowEnum.EXAMINE_AND_APPROVE.getCode();
+                    label = AssetBorrowEnum.EXAMINE_AND_APPROVE.getInfo();
+                    type = "danger";
+                    break;
+                case 2:
+                    value = AssetBorrowEnum.EXAMINE_AND_APPROVE_NO.getCode();
+                    label = AssetBorrowEnum.EXAMINE_AND_APPROVE_NO.getInfo();
+                    type = "info";
+                    break;
+                default:
+                    value = AssetBorrowEnum.RETURN.getCode();
+                    label = AssetBorrowEnum.RETURN.getInfo();
+                    type = "success";
                     break;
             }
             map.put("value",value);

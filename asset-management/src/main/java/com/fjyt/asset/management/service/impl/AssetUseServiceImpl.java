@@ -78,6 +78,15 @@ public class AssetUseServiceImpl implements AssetUseService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public R addUse(AssetUseDTO assetUseDTO) {
+        // 取出资产list中的每个assetCode
+        List<Asset> assetList = assetUseDTO.getAssetSelectList();
+        List<String> collect = assetList.stream().map(Asset::getAssetCode).collect(Collectors.toList());
+        // 批量修改资产状态
+        UpdateStatus updateStatus = new UpdateStatus();
+        updateStatus.setStatus("1");
+        updateStatus.setCollect(collect);
+        assetMapper.updateStatusList(updateStatus);
+
         String userName = JwtUtils.getUserName(TokenUtils.getToken());
         AssetUse assetUse = new AssetUse();
         assetUse.setUseCode(new SerialNumberUtils().createSerialNumber(SerialNumberConstants.ASSET_LY));
@@ -88,17 +97,9 @@ public class AssetUseServiceImpl implements AssetUseService {
         assetUse.setCreateTime(DateUtils.getNowDate());
         assetUse.setUpdateUser(userName);
         assetUse.setUpdateTime(DateUtils.getNowDate());
-        // 取出资产list中的每个assetCode
-        List<Asset> assetList = assetUseDTO.getAssetSelectList();
-        List<String> collect = assetList.stream().map(Asset::getAssetCode).collect(Collectors.toList());
         assetUse.setAssetCodes(collect.toString().substring(1,collect.toString().length()-1));
         // 新增领用
         assetUseMapper.addUse(assetUse);
-        // 批量修改资产状态
-        UpdateStatus updateStatus = new UpdateStatus();
-        updateStatus.setStatus("1");
-        updateStatus.setCollect(collect);
-        assetMapper.updateStatusList(updateStatus);
         return R.ok("新增领用成功");
     }
 
@@ -108,19 +109,11 @@ public class AssetUseServiceImpl implements AssetUseService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public R updateUse(AssetUseDTO assetUseDTO) {
-        String userName = JwtUtils.getUserName(TokenUtils.getToken());
-        AssetUse assetUse = new AssetUse();
-        assetUse.setId(assetUseDTO.getId());
-        assetUse.setUseUser(assetUseDTO.getUseUser());
-        assetUse.setUseTime(assetUseDTO.getUseTime());
-        assetUse.setRemark(assetUseDTO.getRemark());
-        assetUse.setUpdateUser(userName);
-        assetUse.setUpdateTime(DateUtils.getNowDate());
         // 取出资产list中的每个assetCode
         List<Asset> assetList = assetUseDTO.getAssetSelectList();
         List<String> collect = assetList.stream().map(Asset::getAssetCode).collect(Collectors.toList());
-        assetUse.setAssetCodes(collect.toString().substring(1,collect.toString().length()-1));
         // 查询原来的
         List<String> strings = Arrays.asList(assetUseMapper.useListById(assetUseDTO.getId()).getAssetCodes().replace(" ","").split(","));
         UpdateStatus updateStatus = new UpdateStatus();
@@ -132,6 +125,16 @@ public class AssetUseServiceImpl implements AssetUseService {
         updateStatus.setStatus("1");
         updateStatus.setCollect(collect);
         assetMapper.updateStatusList(updateStatus);
+
+        String userName = JwtUtils.getUserName(TokenUtils.getToken());
+        AssetUse assetUse = new AssetUse();
+        assetUse.setId(assetUseDTO.getId());
+        assetUse.setUseUser(assetUseDTO.getUseUser());
+        assetUse.setUseTime(assetUseDTO.getUseTime());
+        assetUse.setRemark(assetUseDTO.getRemark());
+        assetUse.setUpdateUser(userName);
+        assetUse.setUpdateTime(DateUtils.getNowDate());
+        assetUse.setAssetCodes(collect.toString().substring(1,collect.toString().length()-1));
         // 修改领用
         assetUseMapper.updateUse(assetUse);
         return R.ok("修改成功");

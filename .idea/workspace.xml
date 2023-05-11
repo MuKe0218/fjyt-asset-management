@@ -23,29 +23,14 @@
       <change beforePath="$PROJECT_DIR$/../config/dev.env.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/prod.env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/UseQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/DTO/UseQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/VO/UseDetailVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/POJO/VO/UseDetailVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetUseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetUseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetBorrowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetBorrowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/enums/AssetUseEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/enums/AssetUseEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetUseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetUseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/utils/AssetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/utils/AssetUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetUseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetUseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DTO/UseQueryDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/DTO/UseQueryDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/VO/UseDetailVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/POJO/VO/UseDetailVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetUseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetUseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetBorrowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetBorrowController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/enums/AssetUseEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/enums/AssetUseEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetUseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetUseService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/utils/AssetUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/utils/AssetUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetUseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetUseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
@@ -65,8 +50,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -123,6 +108,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AssetManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="asset-management" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.fjyt.asset.management.AssetManagementApplication" />
@@ -154,7 +150,7 @@
       <workItem from="1683506411729" duration="12559000" />
       <workItem from="1683593358029" duration="9979000" />
       <workItem from="1683678312743" duration="25994000" />
-      <workItem from="1683764075207" duration="8865000" />
+      <workItem from="1683764075207" duration="21955000" />
     </task>
     <servers />
   </component>
