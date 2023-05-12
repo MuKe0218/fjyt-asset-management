@@ -25,22 +25,22 @@
                 and ab.status = #{status}
             </if>
             <if test="beginBorrowStartTime != null and beginBorrowStartTime != ''">
-                and date_format(a.borrow_start_time,'%y%m%d') &gt;= date_format(#{beginBorrowStartTime},'%y%m%d')
+                and date_format(ab.borrow_start_time,'%y%m%d') &gt;= date_format(#{beginBorrowStartTime},'%y%m%d')
             </if>
             <if test="endBorrowStartTime != null and endBorrowStartTime != ''">
-                and date_format(a.borrow_start_time,'%y%m%d') &lt;= date_format(#{endBorrowStartTime},'%y%m%d')
+                and date_format(ab.borrow_start_time,'%y%m%d') &lt;= date_format(#{endBorrowStartTime},'%y%m%d')
             </if>
             <if test="beginExpectedReturnTime != null and beginExpectedReturnTime != ''">
-                and date_format(a.expected_return_time,'%y%m%d') &gt;= date_format(#{beginExpectedReturnTime},'%y%m%d')
+                and date_format(ab.expected_return_time,'%y%m%d') &gt;= date_format(#{beginExpectedReturnTime},'%y%m%d')
             </if>
             <if test="endExpectedReturnTime != null and endExpectedReturnTime != ''">
-                and date_format(a.expected_return_time,'%y%m%d') &lt;= date_format(#{endExpectedReturnTime},'%y%m%d')
+                and date_format(ab.expected_return_time,'%y%m%d') &lt;= date_format(#{endExpectedReturnTime},'%y%m%d')
             </if>
             <if test="beginCreateTime != null and beginCreateTime != ''">
-                and date_format(a.create_time,'%y%m%d') &gt;= date_format(#{beginCreateTime},'%y%m%d')
+                and date_format(ab.create_time,'%y%m%d') &gt;= date_format(#{beginCreateTime},'%y%m%d')
             </if>
             <if test="endCreateTime != null and endCreateTime != ''">
-                and date_format(a.create_time,'%y%m%d') &lt;= date_format(#{endCreateTime},'%y%m%d')
+                and date_format(ab.create_time,'%y%m%d') &lt;= date_format(#{endCreateTime},'%y%m%d')
             </if>
         </where>
     </select>
@@ -49,7 +49,7 @@
         select
         ab.id,ab.borrow_code,ab.asset_codes,ab.borrow_user,ab.borrow_time,
         ab.borrow_start_time,ab.expected_return_time,ab.remark,ab.status,
-        ab.create_way
+        ab.create_way,ab.create_user,ab.create_time
         from asset_borrow ab
         where ab.id = #{id}
     </select>

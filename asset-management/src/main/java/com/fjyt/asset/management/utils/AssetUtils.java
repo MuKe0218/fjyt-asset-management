@@ -1,9 +1,6 @@
 package com.fjyt.asset.management.utils;
 
-import com.fjyt.asset.management.enums.AssetBorrowEnum;
-import com.fjyt.asset.management.enums.AssetCreateWayEnum;
-import com.fjyt.asset.management.enums.AssetStatusEnum;
-import com.fjyt.asset.management.enums.AssetUseEnum;
+import com.fjyt.asset.management.enums.*;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -136,6 +133,46 @@ public class AssetUtils {
                 default:
                     value = AssetBorrowEnum.RETURN.getCode();
                     label = AssetBorrowEnum.RETURN.getInfo();
+                    type = "success";
+                    break;
+            }
+            map.put("value",value);
+            map.put("label",label);
+            map.put("type",type);
+            list.add(map);
+        }
+        return list;
+    }
+    /**
+     * 借用状态信息封装
+     * @return
+     */
+    public  static List<Map<String,String>> maintenanceStatusList(){
+        List<Map<String,String>> list = new ArrayList<Map<String,String>>();
+        for (int i=0 ;i<4;i++){
+            Map map = new Hashtable();
+            String label = null;
+            String value = null;
+            String type = null;
+            switch (i){
+                case 0:
+                    value = AssetMaintenanceEnum.MAINTENANCE.getCode();
+                    label = AssetMaintenanceEnum.MAINTENANCE.getInfo();
+                    type = "";
+                    break;
+                case 1:
+                    value = AssetMaintenanceEnum.EXAMINE_AND_APPROVE.getCode();
+                    label = AssetMaintenanceEnum.EXAMINE_AND_APPROVE.getInfo();
+                    type = "danger";
+                    break;
+                case 2:
+                    value = AssetMaintenanceEnum.EXAMINE_AND_APPROVE_NO.getCode();
+                    label = AssetMaintenanceEnum.EXAMINE_AND_APPROVE_NO.getInfo();
+                    type = "info";
+                    break;
+                default:
+                    value = AssetMaintenanceEnum.MAINTENANCE_COMPLETE.getCode();
+                    label = AssetMaintenanceEnum.MAINTENANCE_COMPLETE.getInfo();
                     type = "success";
                     break;
             }

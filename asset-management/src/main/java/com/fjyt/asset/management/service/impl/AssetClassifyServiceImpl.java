@@ -14,6 +14,7 @@ import com.fjyt.asset.management.utils.StringUtils;
 import com.fjyt.asset.management.utils.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -93,6 +94,7 @@ public class AssetClassifyServiceImpl implements AssetClassifyService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public R assetClassifyUpdate(AssetClassifyDTO assetClassifyDTO) {
         String userName = JwtUtils.getUserName(TokenUtils.getToken());
         AssetClassify assetClassify = new AssetClassify();

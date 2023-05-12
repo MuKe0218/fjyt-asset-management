@@ -56,6 +56,14 @@ public class BorrowDetailVO {
      */
     private String createWay;
     /**
+     * 创建人
+     */
+    private String createUser;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
      * 资产列表
      */
     private List<AssetVO> assetSelectList;

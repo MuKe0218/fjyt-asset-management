@@ -143,6 +143,7 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public R borrowDelete(Long id) {
         List<String> strings = Arrays.asList(assetBorrowMapper.getBorrowById(id).getAssetCodes().replace(" ","").split(","));
         UpdateStatus updateStatus = new UpdateStatus();

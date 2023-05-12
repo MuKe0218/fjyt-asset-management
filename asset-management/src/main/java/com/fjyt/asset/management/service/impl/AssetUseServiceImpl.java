@@ -146,6 +146,7 @@ public class AssetUseServiceImpl implements AssetUseService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public R deleteUseById(Long id) {
         List<String> strings = Arrays.asList(assetUseMapper.useListById(id).getAssetCodes().replace(" ","").split(","));
         UpdateStatus updateStatus = new UpdateStatus();

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjyt.asset.management.mapper.AssetMaintenanceMapper">
+
+    <select id="maintenanceList" parameterType="MaintenanceQueryDTO" resultType="AssetMaintenanceVO">
+        select am.id,am.maintenance_code,am.asset_codes,am.maintenance_user,am.maintenance_time,
+               am.remark,am.create_user,am.create_time,am.create_way,am.update_user,
+               am.update_time,am.status
+        from asset_maintenance am
+        <where>
+            am.maintenance_del = '0'
+            <if test="id != null">
+                and am.id = #{id}
+            </if>
+            <if test="maintenanceCode != null and maintenanceCode != ''">
+                and am.maintenance_code like concat('%',#{maintenanceCode},'%')
+            </if>
+            <if test="maintenanceUser != null and maintenanceUser != ''">
+                and am.maintenance_user like concat('%',#{maintenanceUser},'%')
+            </if>
+            <if test="createWay != null and createWay != ''">
+                and am.create_way = #{createWay}
+            </if>
+            <if test="status != null and status != ''">
+                and am.status  = #{status}
+            </if>
+            <if test="beginMaintenanceTime != null and beginMaintenanceTime != ''">
+                and date_format(am.maintenance_time,'%y%m%d') &gt;= date_format(#{beginMaintenanceTime},'%y%m%d')
+            </if>
+            <if test="endMaintenanceTime != null and endMaintenanceTime != ''">
+                and date_format(am.maintenance_time,'%y%m%d') &lt;= date_format(#{endMaintenanceTime},'%y%m%d')
+            </if>
+            <if test="beginCreateTime != null and beginCreateTime != ''">
+                and date_format(am.create_time,'%y%m%d') &gt;= date_format(#{beginCreateTime},'%y%m%d')
+            </if>
+            <if test="endMaintenanceTime != null and endMaintenanceTime != ''">
+                and date_format(am.create_time,'%y%m%d') &lt;= date_format(#{endCreateTime},'%y%m%d')
+            </if>
+        </where>
+    </select>
+
+    <select id="getMaintenanceById" parameterType="Long" resultType="MaintenanceDetailVO">
+        select am.id,am.maintenance_code,am.asset_codes,am.maintenance_user,am.maintenance_time,
+               am.create_user,am.create_time,am.create_way,am.remark
+        from asset_maintenance am
+        where am.id = #{id}
+    </select>
+
+    <insert id="addMaintenance" parameterType="AssetMaintenance">
+        insert into asset_maintenance
+        (
+         <if test="maintenanceCode != null and maintenanceCode != ''">maintenance_code,</if>
+        <if test="assetCodes != null and assetCodes != ''">asset_codes,</if>
+        <if test="maintenanceUser != null and maintenanceUser != ''">maintenance_user,</if>
+        <if test="maintenanceTime != null">maintenance_time,</if>
+        <if test="remark != null and remark != ''">remark,</if>
+        <if test="createUser != null and createUser != ''">create_user,</if>
+        <if test="createTime != null">create_time,</if>
+        <if test="createWay != null and createWay != ''">create_way,</if>
+        <if test="updateUser != null and updateUser != ''">update_user,</if>
+        <if test="status != null and status != ''">status,</if>
+         update_time
+        )
+        values
+        (
+        <if test="maintenanceCode != null and maintenanceCode != ''">#{maintenanceCode},</if>
+        <if test="assetCodes != null and assetCodes != ''">#{assetCodes},</if>
+        <if test="maintenanceUser != null and maintenanceUser != ''">#{maintenanceUser},</if>
+        <if test="maintenanceTime != null">#{maintenanceTime},</if>
+        <if test="remark != null and remark != ''">#{remark},</if>
+        <if test="createUser != null and createUser != ''">#{createUser},</if>
+        <if test="createTime != null">#{createTime},</if>
+        <if test="createWay != null and createWay != ''">#{createWay},</if>
+        <if test="updateUser != null and updateUser != ''">#{updateUser},</if>
+        <if test="status != null and status != ''">#{status},</if>
+         #{updateTime}
+        )
+    </insert>
+
+    <update id="updateMaintenance" parameterType="AssetMaintenance">
+        update asset_maintenance
+        <set>
+            <if test="assetCodes != null and assetCodes != ''">asset_codes = #{assetCodes},</if>
+            <if test="maintenanceUser != null and maintenanceUser != ''">maintenance_user = #{maintenanceUser},</if>
+            <if test="maintenanceTime != null">maintenance_time = #{maintenanceTime},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+            <if test="createWay != null and createWay != ''">create_way = #{createWay},</if>
+            <if test="updateUser != null and updateUser != ''">update_user = #{updateUser},</if>
+            <if test="status != null and status != ''">status = #{status},</if>
+            update_time = #{updateTime}
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="delMaintenance" parameterType="Long">
+        update asset_maintenance set maintenance_del = '1' where id = #{id}
+    </update>
+</mapper>
