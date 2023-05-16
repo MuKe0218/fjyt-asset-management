@@ -19,4 +19,9 @@ public class GlobalException {
     public R exceptionHandler(ClassifyException exception){
         return R.fail(exception.getCode(),exception.getMessage());
     }
+    @ExceptionHandler(WarehouseException.class)
+    public R exceptionHandler(WarehouseException exception){
+        return R.fail(exception.getCode(),exception.getMessage());
+    }
+
 }
