@@ -42,7 +42,7 @@ public class WarehouseController {
      *
      * @return
      */
-    @GetMapping
+    @GetMapping("/list")
     public R warehouseListWithoutPage(){
         return warehouseService.warehouseListWithoutPage();
     }

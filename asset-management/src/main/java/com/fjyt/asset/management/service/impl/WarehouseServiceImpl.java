@@ -46,7 +46,7 @@ public class WarehouseServiceImpl implements WarehouseService {
      */
     @Override
     public R warehouseListWithoutPage() {
-        return null;
+        return R.ok(warehouseMapper.warehouseListWithoutPage());
     }
 
     /**

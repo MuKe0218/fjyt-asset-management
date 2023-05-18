@@ -16,6 +16,17 @@
         </where>
     </select>
 
+    <select id="warehouseListWithoutPage" resultType="WarehouseVO">
+        select
+        w.id,w.warehouse_code,w.warehouse_name,w.province_id,w.city_id,w.county_id,
+        w.specific_position,w.address,w.remark,w.create_user,w.create_time,w.update_user,
+        w.update_time,w.status,w.warehouse_del
+        from warehouse w
+        where
+            w.warehouse_del = '0'
+            and w.status = '0'
+    </select>
+
     <select id="warehouseInfo" parameterType="Long" resultType="WarehouseDetailVO">
         select
         w.id,w.warehouse_code,w.warehouse_name,w.province_id,w.city_id,w.county_id,

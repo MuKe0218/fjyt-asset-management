@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjyt.asset.management.mapper.InventoryMapper">
+
+    <select id="getReceivedAssetList" parameterType="ReceivedQueryDTO" resultType="ReceivedVo">
+        select
+            w.warehouse_name,a.asset_name,ac.classify_name,a.asset_specifications,
+            a.asset_unit, sum( a.asset_price ) as totalPrice,
+            COUNT(a.asset_name) as num
+        from
+        warehouse w
+        RIGHT join asset a on a.warehouse_id = w.id
+        left join asset_classify ac on a.classify_id = ac.classify_id
+        <where>
+            w.warehouse_del = '0'
+            and w.status = '0'
+            <if test="id != null">
+                and w.id = #{id}
+            </if>
+        </where>
+        group by w.id,a.asset_name,ac.classify_name,a.asset_specifications,a.asset_unit
+    </select>
+
+    <select id="getNotReceivedAssetList" parameterType="NotReceivedQueryDTO" resultType="NotReceivedVO">
+        select
+        a.id,a.asset_code,a.asset_name,ac.classify_name,a.asset_specifications,
+        a.asset_unit,a.asset_price
+        from
+        asset a
+        left join asset_classify ac on a.classify_id = ac.classify_id
+        where
+            a.asset_del = '0'
+            and a.status in ('0','5')
+            and a.warehouse_id is null
+    </select>
+
+    <update id="assetWarehousing" parameterType="AssetWarehousingDTO">
+        update asset
+        set warehouse_id = #{warehouseId}
+        where id = #{id}
+    </update>
+</mapper>

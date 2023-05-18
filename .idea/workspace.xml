@@ -23,7 +23,10 @@
       <change beforePath="$PROJECT_DIR$/../config/dev.env.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/prod.env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/exception/GlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/exception/GlobalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/WarehouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/WarehouseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/WarehouseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/WarehouseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/WarehouseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/WarehouseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/WarehouseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/WarehouseServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
@@ -74,7 +77,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/asset-management/src/main/resources/mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -103,13 +106,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,7 +154,8 @@
       <workItem from="1683850895830" duration="13456000" />
       <workItem from="1683888632168" duration="1391000" />
       <workItem from="1684109428613" duration="9606000" />
-      <workItem from="1684197064055" duration="13303000" />
+      <workItem from="1684197064055" duration="15307000" />
+      <workItem from="1684369353206" duration="11889000" />
     </task>
     <servers />
   </component>
