@@ -20,34 +20,34 @@ public interface AssetService {
      * @param assetQueryDTO
      * @return
      */
-    public List<AssetVO> list(AssetQueryDTO assetQueryDTO);
+     List<AssetVO> list(AssetQueryDTO assetQueryDTO);
 
     /**
      * 根据id获取资产详情
      * @param id
      * @return
      */
-    public R getAssetById(Long id);
+     R getAssetById(Long id);
 
     /**
      * 新增资产
      * @param assetDTO
      * @return
      */
-    public R add(AssetDTO assetDTO);
+     R add(AssetDTO assetDTO);
 
     /**
      * 修改资产
      * @param assetDTO
      * @return
      */
-    public R update(AssetDTO assetDTO);
+     R update(AssetDTO assetDTO);
 
     /**
      * 根据assetId删除资产
      * @param id
      * @return
      */
-    public R delete(Long id);
+     R delete(Long id);
 
 }

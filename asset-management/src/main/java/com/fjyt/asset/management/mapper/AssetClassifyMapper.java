@@ -20,45 +20,45 @@ public interface AssetClassifyMapper {
      * @param assetClassify
      * @return
      */
-    public List<AssetClassifyVO> assetClassifyList(AssetClassify assetClassify);
+     List<AssetClassifyVO> assetClassifyList(AssetClassify assetClassify);
     /**
      * 校验分类是否已存在
      * @param classifyName
      * @return
      */
-    public AssetClassify checkAssetClassifyByName(@Param("classifyName") String classifyName);
+     AssetClassify checkAssetClassifyByName(@Param("classifyName") String classifyName);
 
     /**
      * 获取祖籍字段
      * @param classifyId
      * @return
      */
-    public String getAncestorsByClassifyId(@Param("classifyId") Long classifyId);
+     String getAncestorsByClassifyId(@Param("classifyId") Long classifyId);
 
     /**
      * 根据分类id获取分类详情
      * @param classifyId
      * @return
      */
-    public AssetClassifyVO assetClassifyByClassifyId(@Param("classifyId") Long classifyId);
+     AssetClassifyVO assetClassifyByClassifyId(@Param("classifyId") Long classifyId);
 
     /**
      * 新增分类
      * @param assetClassify
      * @return
      */
-    public int assetClassifyAdd(AssetClassify assetClassify);
+     int assetClassifyAdd(AssetClassify assetClassify);
 
     /**
      * 编辑分类
      * @param assetClassify
      */
-    public void assetClassifyUpdate(AssetClassify assetClassify);
+     void assetClassifyUpdate(AssetClassify assetClassify);
 
 
     /**
      * 删除分类
      * @param classifyId
      */
-    public void assetClassifyDel(@Param("classifyId") Long classifyId);
+     void assetClassifyDel(@Param("classifyId") Long classifyId);
 }

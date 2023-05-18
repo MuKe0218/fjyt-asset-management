@@ -19,30 +19,30 @@ public interface AssetBorrowMapper {
      * @param borrowQueryDTO
      * @return
      */
-    public List<AssetBorrowVO> borrowList(BorrowQueryDTO borrowQueryDTO);
+     List<AssetBorrowVO> borrowList(BorrowQueryDTO borrowQueryDTO);
 
     /**
      * 根据id查询借用单详情
      * @param id
      * @return
      */
-    public BorrowDetailVO getBorrowById(Long id);
+     BorrowDetailVO getBorrowById(Long id);
 
     /**
      * 新增借用单
      * @param assetBorrow
      */
-    public void borrowAdd(AssetBorrow assetBorrow);
+     void borrowAdd(AssetBorrow assetBorrow);
 
     /**
      * 编辑领用单
      * @param assetBorrow
      */
-    public void borrowUpdate(AssetBorrow assetBorrow);
+     void borrowUpdate(AssetBorrow assetBorrow);
 
     /**
      * 根据id删除借用单
      * @param id
      */
-    public void borrowDelete(Long id);
+     void borrowDelete(Long id);
 }

@@ -18,19 +18,19 @@ public interface AddressMapper {
      * @param province
      * @return
      */
-    public List<Province> getProvince(Province province);
+     List<Province> getProvince(Province province);
 
     /**
      * 获取城市信息列表
      * @param city
      * @return
      */
-    public List<City> getCity(City city);
+     List<City> getCity(City city);
 
     /**
      * 获取区县信息列表
      * @param county
      * @return
      */
-    public List<County> getCounty(County county);
+     List<County> getCounty(County county);
 }

@@ -20,27 +20,27 @@ public interface AssetUseMapper {
      * @param useQueryDTO
      * @return
      */
-    public List<AssetUseVO> useList(UseQueryDTO useQueryDTO);
+     List<AssetUseVO> useList(UseQueryDTO useQueryDTO);
 
     /**
      * 领用详情
      * @param id
      * @return
      */
-    public UseDetailVO useListById(Long id);
+     UseDetailVO useListById(Long id);
     /**
      * 新增领用
      * @param assetUse
      */
-    public void addUse(AssetUse assetUse);
+     void addUse(AssetUse assetUse);
 
     /**
      * 修改领用
      * @param assetUse
      */
-    public void updateUse(AssetUse assetUse);
+     void updateUse(AssetUse assetUse);
     /**
      * 根据id删除领用
      */
-    public void deleteUseById(Long id);
+     void deleteUseById(Long id);
 }

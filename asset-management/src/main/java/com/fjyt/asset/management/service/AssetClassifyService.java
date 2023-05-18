@@ -18,40 +18,40 @@ public interface AssetClassifyService {
      * @param assetClassify
      * @return
      */
-    public List<AssetClassifyVO> assetClassifyList(AssetClassify assetClassify);
+     List<AssetClassifyVO> assetClassifyList(AssetClassify assetClassify);
 
     /**
      * 根据分类id获取分类详情
      * @param classifyId
      * @return
      */
-    public R assetClassifyByClassifyId(Long classifyId);
+     R assetClassifyByClassifyId(Long classifyId);
 
     /**
      * 校验分类是否已存在
      * @param classifyName
      * @return
      */
-    public AssetClassify checkAssetClassifyByName(String classifyName);
+     AssetClassify checkAssetClassifyByName(String classifyName);
 
     /**
      * 新增分类
      * @param assetClassifyDTO
      * @return
      */
-    public R assetClassifyAdd(AssetClassifyDTO assetClassifyDTO);
+     R assetClassifyAdd(AssetClassifyDTO assetClassifyDTO);
 
     /**
      * 编辑分类信息
      * @param assetClassifyDTO
      * @return
      */
-    public R assetClassifyUpdate(AssetClassifyDTO assetClassifyDTO);
+     R assetClassifyUpdate(AssetClassifyDTO assetClassifyDTO);
 
     /**
      * 删除分类
      * @param classifyId
      * @return
      */
-    public R assetClassifyDel(Long classifyId);
+     R assetClassifyDel(Long classifyId);
 }

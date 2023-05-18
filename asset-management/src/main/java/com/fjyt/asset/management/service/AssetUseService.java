@@ -18,33 +18,33 @@ public interface AssetUseService {
      * @param useQueryDTO
      * @return
      */
-    public List<AssetUseVO> useList (UseQueryDTO useQueryDTO);
+     List<AssetUseVO> useList (UseQueryDTO useQueryDTO);
 
     /**
      * 根据id查询领用单详情
      * @param id
      * @return
      */
-    public R useListById(Long id);
+     R useListById(Long id);
 
     /**
      * 新增领用
      * @param assetUseDTO
      * @return
      */
-    public R addUse(AssetUseDTO assetUseDTO);
+     R addUse(AssetUseDTO assetUseDTO);
 
     /**
      * 修改领用单
      * @param assetUseDTO
      * @return
      */
-    public R updateUse(AssetUseDTO assetUseDTO);
+     R updateUse(AssetUseDTO assetUseDTO);
 
     /**
      * 根据id删除领用
      * @param id
      * @return
      */
-    public R deleteUseById(Long id);
+     R deleteUseById(Long id);
 }

@@ -17,33 +17,33 @@ public interface AssetMaintenanceService {
      * @param maintenanceQueryDTO
      * @return
      */
-    public List<AssetMaintenanceVO> maintenanceList(MaintenanceQueryDTO maintenanceQueryDTO);
+     List<AssetMaintenanceVO> maintenanceList(MaintenanceQueryDTO maintenanceQueryDTO);
 
     /**
      * 根据id获取维修信息
      * @param id
      * @return
      */
-    public R getMaintenanceById(Long id);
+     R getMaintenanceById(Long id);
 
     /**
      * 新增维修信息
      * @param assetMaintenanceDTO
      * @return
      */
-    public R addMaintenance(AssetMaintenanceDTO assetMaintenanceDTO);
+     R addMaintenance(AssetMaintenanceDTO assetMaintenanceDTO);
 
     /**
      * 修改维修信息
      * @param assetMaintenanceDTO
      * @return
      */
-    public R updateMaintenance(AssetMaintenanceDTO assetMaintenanceDTO);
+     R updateMaintenance(AssetMaintenanceDTO assetMaintenanceDTO);
 
     /**
      * 根据id删除维修信息
      * @param id
      * @return
      */
-    public R delMaintenance(Long id);
+     R delMaintenance(Long id);
 }

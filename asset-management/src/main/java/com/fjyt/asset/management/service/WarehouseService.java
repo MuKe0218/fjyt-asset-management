@@ -20,47 +20,47 @@ public interface WarehouseService {
      * @param warehouseQueryDTO
      * @return
      */
-    public List<WarehouseVO> warehouseList(WarehouseQueryDTO warehouseQueryDTO);
+     List<WarehouseVO> warehouseList(WarehouseQueryDTO warehouseQueryDTO);
 
     /**
      *
      * 查询仓库列表没有分页
      * @return
      */
-    public R warehouseListWithoutPage();
+     R warehouseListWithoutPage();
 
     /**
      * 根据id查询仓库信息
      * @param id
      * @return
      */
-    public WarehouseDetailVO warehouseInfo(Long id);
+     WarehouseDetailVO warehouseInfo(Long id);
 
     /**
      * 新增仓库
      * @param warehouseDTO
      * @return
      */
-    public R addWarehouse(WarehouseDTO warehouseDTO);
+     R addWarehouse(WarehouseDTO warehouseDTO);
 
     /**
      * 编辑仓库
      * @param warehouseDTO
      * @return
      */
-    public R updateWarehouse(WarehouseDTO warehouseDTO);
+     R updateWarehouse(WarehouseDTO warehouseDTO);
 
     /**
      * 修改状态
      * @param warehouseDTO
      * @return
      */
-    public R updateStatus(WarehouseDTO warehouseDTO);
+     R updateStatus(WarehouseDTO warehouseDTO);
 
     /**
      * 根据仓库ID删除仓库
      * @param id
      * @return
      */
-    public R deleteWarehouse(Long id);
+     R deleteWarehouse(Long id);
 }

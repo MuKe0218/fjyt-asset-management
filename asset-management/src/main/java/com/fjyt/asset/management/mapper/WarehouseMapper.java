@@ -21,56 +21,56 @@ public interface WarehouseMapper {
      * @param warehouseQueryDTO
      * @return
      */
-    public List<WarehouseVO> warehouseList(WarehouseQueryDTO warehouseQueryDTO);
+     List<WarehouseVO> warehouseList(WarehouseQueryDTO warehouseQueryDTO);
 
     /**
      * 查询仓库列表没有分页
      * @return
      */
-    public List<WarehouseVO> warehouseListWithoutPage();
+     List<WarehouseVO> warehouseListWithoutPage();
 
     /**
      * 查询根据仓库信息
      * @param id
      * @return
      */
-    public WarehouseDetailVO warehouseInfo(Long id);
+     WarehouseDetailVO warehouseInfo(Long id);
 
     /**
      * 根据仓库code获取资产
      * @param warehouseId
      * @return
      */
-    public List<AssetWarehouse> assetAndWarehouseByWareCode(Long warehouseId);
+     List<AssetWarehouse> assetAndWarehouseByWareCode(Long warehouseId);
 
     /**
      * 校验仓库是否存在
      * @param warehouseName
      * @return
      */
-    public Warehouse checkByWarehouseName(String warehouseName);
+     Warehouse checkByWarehouseName(String warehouseName);
 
     /**
      * 新增仓库
      * @param warehouse
      */
-    public void addWarehouse(Warehouse warehouse);
+     void addWarehouse(Warehouse warehouse);
 
     /**
      * 修改仓库
      * @param warehouse
      */
-    public void updateWarehouse(Warehouse warehouse);
+     void updateWarehouse(Warehouse warehouse);
 
     /**
      * 修改状态
      * @param warehouse
      */
-    public void updateStatus(Warehouse warehouse);
+     void updateStatus(Warehouse warehouse);
 
     /**
      * 删除仓库
      * @param id
      */
-    public void deleteWarehouse(Long id);
+     void deleteWarehouse(Long id);
 }

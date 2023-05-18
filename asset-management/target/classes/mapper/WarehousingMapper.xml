@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjyt.asset.management.mapper.WarehousingMapper">
+
+    <select id="getWarehousingList" parameterType="WarehousingQueryDTO" resultType="WarehousingVO">
+        select
+        w.id,w.warehousing_code,w.asset_codes,w.warehousing_time,w.create_user,
+        w.create_time,w.update_user,w.update_time
+        from
+        warehousing w
+        <where>
+            w.warehousing_del = '0'
+            <if test="warehousingCode != null and warehousingCode != ''">
+                and w.warehousing_code = #{warehousingCode}
+            </if>
+        </where>
+    </select>
+
+    <select id="getWarehousingDetail" parameterType="Long" resultType="WarehousingDetailVO">
+        select
+        w.id,w.warehousing_code,w.asset_codes,w.warehousing_time,w.create_user,
+        w.create_time
+        from
+        warehousing w
+        where w.warehousing_del = '0'
+            and w.id = #{id}
+    </select>
+    
+    <insert id="addWarehousing" parameterType="AssetWarehousing">
+        insert into warehousing
+        (
+            <if test="warehousingCode != null and warehousingCode != ''">warehousing_code,</if>
+        <if test="assetCodes != null and assetCodes != ''">asset_codes,</if>
+        <if test="warehousingTime != null">warehousing_time,</if>
+        <if test="createUser != null and createUser != ''">create_user,</if>
+        <if test="createTime != null">create_time,</if>
+        <if test="updateUser != null and updateUser != ''">update_user,</if>
+        update_time
+        )
+        values 
+        (
+        <if test="warehousingCode != null and warehousingCode != ''">#{warehousingCode},</if>
+        <if test="assetCodes != null and assetCodes != ''">#{assetCodes},</if>
+        <if test="warehousingTime != null">#{warehousingTime},</if>
+        <if test="createUser != null and createUser != ''">#{createUser},</if>
+        <if test="createTime != null">#{createTime},</if>
+        <if test="updateUser != null and updateUser != ''">#{updateUser},</if>
+         #{updateTime}
+        )
+    </insert>
+</mapper>

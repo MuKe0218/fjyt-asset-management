@@ -20,18 +20,18 @@ public interface InventoryMapper {
      * @param receivedDTO
      * @return
      */
-    public List<ReceivedVo> getReceivedAssetList(ReceivedQueryDTO receivedDTO);
+     List<ReceivedVo> getReceivedAssetList(ReceivedQueryDTO receivedDTO);
 
     /**
      * 获取未入库的资产列表
      * @param notReceiveDTO
      * @return
      */
-    public List<NotReceivedVO> getNotReceivedAssetList(NotReceivedQueryDTO notReceiveDTO);
+     List<NotReceivedVO> getNotReceivedAssetList(NotReceivedQueryDTO notReceiveDTO);
 
     /**
      * 资产入库操作
      * @param assetWarehousingDTO
      */
-    public void assetWarehousing(AssetWarehousingDTO assetWarehousingDTO);
+     void assetWarehousing(AssetWarehousingDTO assetWarehousingDTO);
 }

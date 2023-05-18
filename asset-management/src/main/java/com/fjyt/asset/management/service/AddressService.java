@@ -15,19 +15,19 @@ public interface AddressService {
      * @param province
      * @return
      */
-    public R getProvince(Province province);
+     R getProvince(Province province);
 
     /**
      * 获取城市信息列表
      * @param city
      * @return
      */
-    public R getCity(City city);
+     R getCity(City city);
 
     /**
      * 获取区县信息列表
      * @param county
      * @return
      */
-    public R getCounty(County county);
+     R getCounty(County county);
 }

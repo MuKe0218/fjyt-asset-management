@@ -17,33 +17,33 @@ public interface AssetBorrowService {
      * @param borrowQueryDTO
      * @return
      */
-    public List<AssetBorrowVO> borrowList(BorrowQueryDTO borrowQueryDTO);
+     List<AssetBorrowVO> borrowList(BorrowQueryDTO borrowQueryDTO);
 
     /**
      * 根据id查询借用单
      * @param id
      * @return
      */
-    public R getBorrowById(Long id);
+     R getBorrowById(Long id);
 
     /**
      * 新增借用单
      * @param assetBorrowDTO
      * @return
      */
-    public R borrowAdd(AssetBorrowDTO assetBorrowDTO);
+     R borrowAdd(AssetBorrowDTO assetBorrowDTO);
 
     /**
      * 编辑借用单
      * @param assetBorrowDTO
      * @return
      */
-    public R borrowUpdate(AssetBorrowDTO assetBorrowDTO);
+     R borrowUpdate(AssetBorrowDTO assetBorrowDTO);
 
     /**
      * 根据id删除借用单
      * @param id
      * @return
      */
-    public R borrowDelete(Long id);
+     R borrowDelete(Long id);
 }

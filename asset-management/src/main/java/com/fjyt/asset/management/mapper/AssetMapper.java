@@ -23,62 +23,62 @@ public interface AssetMapper {
      * @param assetQueryDTO
      * @return
      */
-    public List<AssetVO> list(AssetQueryDTO assetQueryDTO);
+     List<AssetVO> list(AssetQueryDTO assetQueryDTO);
 
     /**
      * 根据id查询资产详情
      * @return
      */
-    public AssetDetailVO assetById(Long id);
+     AssetDetailVO assetById(Long id);
 
     /**
      * 获取资产名称list
      * @param strings
      * @return
      */
-    public List<String> getAssetNameList(@Param("strings") List<String> strings);
+     List<String> getAssetNameList(@Param("strings") List<String> strings);
 
     /**
      * 根据codes查询list
      * @param list
      * @return
      */
-    public List<AssetVO> getAssetByCodes(@Param("list") List<String> list);
+     List<AssetVO> getAssetByCodes(@Param("list") List<String> list);
 
     /**
      * 新增资产
      * @param asset
      */
-    public void add(Asset asset);
+     void add(Asset asset);
 
     /**
      * 修改资产
      * @param asset
      */
-    public void update(Asset asset);
+     void update(Asset asset);
 
     /**
      * 批量修改资产状态
      */
-    public void updateStatusList(UpdateStatus updateStatus);
+     void updateStatusList(UpdateStatus updateStatus);
 
     /**
      * 删除资产
      * @param id
      */
-    public void delete(Long id);
+     void delete(Long id);
 
     /**
      * 保存资产图片路径关联
      * @param assetPicture
      */
-    public void saveAssetPicturePath(AssetPicture assetPicture);
+     void saveAssetPicturePath(AssetPicture assetPicture);
     /**
      * 根据assetCode查询图片路径
      */
-    public String getAssetPicturePath(String assetCode);
+     String getAssetPicturePath(String assetCode);
     /**
      * 删除资产图片关联
      */
-    public void delAssetPicturePath(String assetCode);
+     void delAssetPicturePath(String assetCode);
 }

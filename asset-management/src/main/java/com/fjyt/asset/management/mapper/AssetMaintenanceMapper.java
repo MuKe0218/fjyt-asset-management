@@ -20,30 +20,30 @@ public interface AssetMaintenanceMapper {
      * @param maintenanceQueryDTO
      * @return
      */
-    public List<AssetMaintenanceVO> maintenanceList(MaintenanceQueryDTO maintenanceQueryDTO);
+     List<AssetMaintenanceVO> maintenanceList(MaintenanceQueryDTO maintenanceQueryDTO);
 
     /**
      * 根据id查询维修信息
      * @param id
      * @return
      */
-    public MaintenanceDetailVO getMaintenanceById(Long id);
+     MaintenanceDetailVO getMaintenanceById(Long id);
 
     /**
      * 新增维修信息
      * @param assetMaintenance
      */
-    public void addMaintenance(AssetMaintenance assetMaintenance);
+     void addMaintenance(AssetMaintenance assetMaintenance);
 
     /**
      * 修改维修信息
      * @param assetMaintenance
      */
-    public void updateMaintenance(AssetMaintenance assetMaintenance);
+     void updateMaintenance(AssetMaintenance assetMaintenance);
 
     /**
      * 删除维修信息
      * @param id
      */
-    public void delMaintenance(Long id);
+     void delMaintenance(Long id);
 }

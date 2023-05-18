@@ -16,19 +16,19 @@ public interface InventoryService {
      * @param receivedDTO
      * @return
      */
-    public R getReceivedAssetList(ReceivedQueryDTO receivedDTO);
+     R getReceivedAssetList(ReceivedQueryDTO receivedDTO);
 
     /**
      * 获取未入库的资产列表
      * @param notReceiveDTO
      * @return
      */
-    public R getNotReceivedAssetList(NotReceivedQueryDTO notReceiveDTO);
+     R getNotReceivedAssetList(NotReceivedQueryDTO notReceiveDTO);
 
     /**
      * 资产入库操作
      * @param assetWarehousingDTO
      * @return
      */
-    public R assetWarehousing(@RequestBody AssetWarehousingDTO assetWarehousingDTO);
+     R assetWarehousing(@RequestBody AssetWarehousingDTO assetWarehousingDTO);
 }
