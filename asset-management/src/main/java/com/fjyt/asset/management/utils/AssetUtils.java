@@ -184,6 +184,41 @@ public class AssetUtils {
         return list;
     }
     /**
+     * 采购状态信息封装
+     * @return
+     */
+    public  static List<Map<String,String>> procureStatusList(){
+        List<Map<String,String>> list = new ArrayList<Map<String,String>>();
+        for (int i=0 ;i<3;i++){
+            Map map = new Hashtable();
+            String label = null;
+            String value = null;
+            String type = null;
+            switch (i){
+                case 0:
+                    value = ProcureStatusEnum.EXAMINE_AND_APPROVE.getCode();
+                    label = ProcureStatusEnum.EXAMINE_AND_APPROVE.getInfo();
+                    type = "";
+                    break;
+                case 1:
+                    value = ProcureStatusEnum.EXAMINE_AND_APPROVE_NO.getCode();
+                    label = ProcureStatusEnum.EXAMINE_AND_APPROVE_NO.getInfo();
+                    type = "danger";
+                    break;
+                default:
+                    value = ProcureStatusEnum.EXAMINE_AND_APPROVE_OK.getCode();
+                    label = ProcureStatusEnum.EXAMINE_AND_APPROVE_OK.getInfo();
+                    type = "success";
+                    break;
+            }
+            map.put("value",value);
+            map.put("label",label);
+            map.put("type",type);
+            list.add(map);
+        }
+        return list;
+    }
+    /**
      * 创建方式封装
      * @return
      */
