@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.AssetUseMapper">
 
-    <select id="useList" parameterType="UseQueryDTO" resultType="AssetUseVO">
+    <select id="useList" parameterType="com.fjyt.asset.management.POJO.DTO.UseQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.AssetUseVO">
         select au.id,au.use_code,au.asset_codes,au.use_user,au.use_time,
                au.remark,au.create_user,au.create_time,au.create_way,
                au.update_user,au.update_time,au.status
@@ -38,7 +38,7 @@
         </where>
     </select>
 
-    <select id="useListById" parameterType="Long" resultType="UseDetailVO">
+    <select id="useListById" parameterType="Long" resultType="com.fjyt.asset.management.POJO.VO.UseDetailVO">
         select au.id,au.use_code,au.use_user,au.use_time,
                au.remark,au.asset_codes,au.status,au.create_way,
                au.create_user,au.create_time
@@ -46,7 +46,7 @@
         where id = #{id}
     </select>
 
-    <insert id="addUse" parameterType="AssetUse">
+    <insert id="addUse" parameterType="com.fjyt.asset.management.POJO.DO.AssetUse">
         insert into asset_use
         (
          <if test="useCode != null and useCode != ''">use_code,</if>
@@ -77,7 +77,7 @@
         )
     </insert>
 
-    <update id="updateUse" parameterType="AssetUse">
+    <update id="updateUse" parameterType="com.fjyt.asset.management.POJO.DO.AssetUse">
         update asset_use
         <set>
             <if test="assetCodes != null and assetCodes != ''">asset_codes = #{assetCodes},</if>

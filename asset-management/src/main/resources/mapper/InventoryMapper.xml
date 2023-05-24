@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.InventoryMapper">
 
-    <select id="getReceivedAssetList" parameterType="ReceivedQueryDTO" resultType="ReceivedVo">
+    <select id="getReceivedAssetList" parameterType="com.fjyt.asset.management.POJO.DTO.ReceivedQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.ReceivedVo">
         select
             w.warehouse_name,a.asset_name,ac.classify_name,a.asset_specifications,
             a.asset_unit, sum( a.asset_price ) as totalPrice,
@@ -23,7 +23,7 @@
         group by w.id,a.asset_name,ac.classify_name,a.asset_specifications,a.asset_unit
     </select>
 
-    <select id="getNotReceivedAssetList" parameterType="NotReceivedQueryDTO" resultType="NotReceivedVO">
+    <select id="getNotReceivedAssetList" parameterType="com.fjyt.asset.management.POJO.DTO.NotReceivedQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.NotReceivedVO">
         select
         a.id,a.asset_code,a.asset_name,ac.classify_name,a.asset_specifications,
         a.asset_unit,a.asset_price
@@ -36,7 +36,7 @@
             and a.warehouse_id is null
     </select>
 
-    <update id="assetWarehousing" parameterType="AssetWarehousingDTO">
+    <update id="assetWarehousing" parameterType="com.fjyt.asset.management.POJO.DTO.AssetWarehousingDTO">
         update asset
         set warehouse_id = #{warehouseId}
         where id = #{id}
