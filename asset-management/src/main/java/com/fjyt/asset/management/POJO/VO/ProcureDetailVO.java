@@ -1,11 +1,13 @@
 package com.fjyt.asset.management.POJO.VO;
 
+import com.fjyt.asset.management.POJO.DTO.DingDingDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author keQiLong
@@ -46,5 +48,5 @@ public class ProcureDetailVO {
     /**
      * 采购资产列表
      */
-    private List<ProcureAssetVO> procureAssetVOS;
+    private List<Map<String,String>> mapList;
 }

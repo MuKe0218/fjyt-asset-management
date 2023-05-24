@@ -116,5 +116,7 @@ public class Constants {
      */
     public static final String RESOURCE_PREFIX = "/profile";
 
-
+    public static final String ZC_USE = "物品领用";
+    public static final String ZC_BORROW = "物品借用";
+    public static final String ZC_PROCURE = "采购";
 }

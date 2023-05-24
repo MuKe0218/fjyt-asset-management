@@ -31,6 +31,10 @@ public class SerialNumberConstants {
      */
     public static final String WAREHOUSE_CK = "CK";
     /**
+     * 采购单前缀
+     */
+    public static final String WAREHOUSE_CG = "CG";
+    /**
      * 入库单前缀
      */
     public static final String WAREHOUSE_RK = "RK";

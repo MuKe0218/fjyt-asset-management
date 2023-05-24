@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author keQiLong
@@ -34,6 +35,18 @@ public class ProcureVO {
      * 物品信息名称集合
      */
     private String assetNames;
+    /**
+     * 验收人
+     */
+    private String checkUser;
+    /**
+     * 验收时间
+     */
+    private Date checkTime;
+    /**
+     * 创建方式
+     */
+    private String createWay;
     /**
      * 采购申请人
      */

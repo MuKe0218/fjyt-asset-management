@@ -6,7 +6,7 @@ package com.fjyt.asset.management.enums;
  */
 public enum ProcureStatusEnum {
     EXAMINE_AND_APPROVE("0","审批中"),EXAMINE_AND_APPROVE_NO("1","审批未通过"),
-        EXAMINE_AND_APPROVE_OK("2","审批通过");
+        EXAMINE_AND_APPROVE_OK("2","审批通过"),CHECK_AND_ACCEPT("3","已验收");
 
     private final String code;
     private final String info;

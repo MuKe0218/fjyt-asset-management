@@ -69,15 +69,12 @@ public class OutboundServiceImpl implements OutboundService {
      */
     @Override
     public void addOutbound(OutboundDTO outboundDTO) {
-        String userName = JwtUtils.getUserName(TokenUtils.getToken());
         String outboundCode = new SerialNumberUtils().createSerialNumber(SerialNumberConstants.WAREHOUSE_CK);
         AssetOutbound assetOutbound = new AssetOutbound();
         assetOutbound.setOutboundCode(outboundCode);
         assetOutbound.setAssetCodes(outboundDTO.getAssetCodes());
         assetOutbound.setOutboundTime(DateUtils.getNowDate());
-        assetOutbound.setCreateUser(userName);
         assetOutbound.setCreateTime(DateUtils.getNowDate());
-        assetOutbound.setUpdateUser(userName);
         assetOutbound.setUpdateTime(DateUtils.getNowDate());
         outboundMapper.addOutbound(assetOutbound);
     }

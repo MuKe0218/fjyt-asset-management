@@ -3,8 +3,10 @@ package com.fjyt.asset.management.service.impl;
 import com.alibaba.nacos.shaded.org.checkerframework.checker.units.qual.A;
 import com.fjyt.asset.management.POJO.DO.Asset;
 import com.fjyt.asset.management.POJO.DO.AssetBorrow;
+import com.fjyt.asset.management.POJO.DO.ManagementDingDing;
 import com.fjyt.asset.management.POJO.DTO.AssetBorrowDTO;
 import com.fjyt.asset.management.POJO.DTO.BorrowQueryDTO;
+import com.fjyt.asset.management.POJO.DTO.OutboundDTO;
 import com.fjyt.asset.management.POJO.DTO.UpdateStatus;
 import com.fjyt.asset.management.POJO.R;
 import com.fjyt.asset.management.POJO.VO.AssetBorrowVO;
@@ -13,7 +15,9 @@ import com.fjyt.asset.management.POJO.VO.BorrowDetailVO;
 import com.fjyt.asset.management.constant.SerialNumberConstants;
 import com.fjyt.asset.management.mapper.AssetBorrowMapper;
 import com.fjyt.asset.management.mapper.AssetMapper;
+import com.fjyt.asset.management.mapper.DingDingMapper;
 import com.fjyt.asset.management.service.AssetBorrowService;
+import com.fjyt.asset.management.service.OutboundService;
 import com.fjyt.asset.management.utils.DateUtils;
 import com.fjyt.asset.management.utils.JwtUtils;
 import com.fjyt.asset.management.utils.SerialNumberUtils;
@@ -38,6 +42,10 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
     private AssetMapper assetMapper;
     @Autowired
     private AssetBorrowMapper assetBorrowMapper;
+    @Autowired
+    private DingDingMapper dingDingMapper;
+    @Autowired
+    private OutboundService outboundService;
     /**
      * 查询借用列表
      * @param borrowQueryDTO
@@ -78,11 +86,19 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
         // 取出资产list中的每个assetCode
         List<Asset> assetList = assetBorrowDTO.getAssetSelectList();
         List<String> collect = assetList.stream().map(Asset::getAssetCode).collect(Collectors.toList());
+        String assetCodes = collect.toString().substring(1,collect.toString().length()-1);
         // 批量修改资产状态
         UpdateStatus updateStatus = new UpdateStatus();
         updateStatus.setStatus("2");
         updateStatus.setCollect(collect);
         assetMapper.updateStatusList(updateStatus);
+
+        // 出库
+        assetMapper.updateWarehouse(collect);
+        // 新增出库单
+        OutboundDTO outboundDTO = new OutboundDTO();
+        outboundDTO.setAssetCodes(assetCodes);
+        outboundService.addOutbound(outboundDTO);
 
         String userName = JwtUtils.getUserName(TokenUtils.getToken());
         AssetBorrow assetBorrow = new AssetBorrow();
@@ -96,7 +112,7 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
         assetBorrow.setCreateTime(DateUtils.getNowDate());
         assetBorrow.setUpdateUser(userName);
         assetBorrow.setUpdateTime(DateUtils.getNowDate());
-        assetBorrow.setAssetCodes(collect.toString().substring(1,collect.toString().length()-1));
+        assetBorrow.setAssetCodes(assetCodes);
         assetBorrowMapper.borrowAdd(assetBorrow);
 
         return R.ok("新增成功");
@@ -153,5 +169,66 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
         assetMapper.updateStatusList(updateStatus);
         assetBorrowMapper.borrowDelete(id);
         return R.ok("删除成功");
+    }
+
+    /**
+     * 关联钉钉新增借用单
+     * @param assetCodes
+     * @param borrowUser
+     * @param processInstanceId
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void addBorrowFromDingDing(List<String> assetCodes, String borrowUser, String processInstanceId) {
+        System.out.println("关联钉钉创建借用单");
+        String code = new SerialNumberUtils().createSerialNumber(SerialNumberConstants.ASSET_JY);
+        String assetCodesString = assetCodes.toString().substring(1,assetCodes.toString().length()-1);
+        // 新增领用与审批关联表
+        ManagementDingDing managementDingDing = new ManagementDingDing();
+        managementDingDing.setCode(code);
+        managementDingDing.setProcessInstanceId(processInstanceId);
+        dingDingMapper.addManagementDingDing(managementDingDing);
+        AssetBorrow assetBorrow = new AssetBorrow();
+        assetBorrow.setBorrowCode(code);
+        assetBorrow.setBorrowUser(borrowUser);
+        assetBorrow.setBorrowTime(DateUtils.getNowDate());
+        assetBorrow.setCreateWay("1");
+        assetBorrow.setStatus("1");
+        assetBorrow.setCreateTime(DateUtils.getNowDate());
+        assetBorrow.setUpdateTime(DateUtils.getNowDate());
+        assetBorrow.setAssetCodes(assetCodesString);
+        // 将所领用的资产状态变为审批中
+        UpdateStatus updateStatus = new UpdateStatus();
+        updateStatus.setStatus("3");
+        updateStatus.setCollect(assetCodes);
+        assetMapper.updateStatusList(updateStatus);
+        // 出库
+        assetMapper.updateWarehouse(assetCodes);
+        // 创建出库单
+        OutboundDTO outboundDTO = new OutboundDTO();
+        outboundDTO.setAssetCodes(assetCodesString);
+        outboundService.addOutbound(outboundDTO);
+    }
+
+    /**
+     * 修改状态
+     * @param status
+     * @param processInstanceId
+     */
+    @Override
+    public void updateStatus(String status, String processInstanceId) {
+        // 获取领用单code
+        String code = dingDingMapper.getCode(processInstanceId);
+        assetBorrowMapper.updateStatus(status,code);
+    }
+
+    /**
+     * 根据borrowCode查询资产codes
+     * @param borrowCode
+     * @return
+     */
+    @Override
+    public String getCodes(String borrowCode) {
+        return assetBorrowMapper.getCodes(borrowCode);
     }
 }

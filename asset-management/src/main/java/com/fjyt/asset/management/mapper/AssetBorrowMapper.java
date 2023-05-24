@@ -5,6 +5,7 @@ import com.fjyt.asset.management.POJO.DTO.BorrowQueryDTO;
 import com.fjyt.asset.management.POJO.VO.AssetBorrowVO;
 import com.fjyt.asset.management.POJO.VO.BorrowDetailVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -45,4 +46,16 @@ public interface AssetBorrowMapper {
      * @param id
      */
      void borrowDelete(Long id);
+
+    /**
+     * 修改状态
+     * @param status
+     * @param borrowCode
+     */
+    void updateStatus(@Param("status") String status, @Param("borrowCode") String borrowCode);
+
+    /**
+     * 根据borrowCode查询资产codes
+     */
+    String getCodes(@Param("borrowCode") String borrowCode);
 }

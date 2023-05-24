@@ -5,6 +5,7 @@ import com.fjyt.asset.management.POJO.DTO.UseQueryDTO;
 import com.fjyt.asset.management.POJO.VO.AssetUseVO;
 import com.fjyt.asset.management.POJO.VO.UseDetailVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -43,4 +44,15 @@ public interface AssetUseMapper {
      * 根据id删除领用
      */
      void deleteUseById(Long id);
+
+    /**
+     * 修改状态
+     * @param status
+     * @param useCode
+     */
+     void updateStatus(@Param("status") String status,@Param("useCode") String useCode);
+    /**
+     * 根据useCode查询资产codes
+     */
+    String getCodes(@Param("useCode") String useCode);
 }

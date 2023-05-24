@@ -9,10 +9,7 @@ import com.fjyt.asset.management.utils.AssetUtils;
 import com.fjyt.asset.management.utils.PageHelperUtil;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -55,5 +52,15 @@ public class ProcureController {
     @GetMapping("/status")
     public R getStatusList(){
         return R.ok(AssetUtils.procureStatusList());
+    }
+
+    /**
+     * 采购验收
+     * @param id
+     * @return
+     */
+    @PutMapping("/{id}")
+    public R checkAndAccept(@PathVariable Long id){
+        return procureService.checkAndAccept(id);
     }
 }

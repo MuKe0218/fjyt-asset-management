@@ -28,6 +28,8 @@
         <mysql.version>8.0.29</mysql.version>
         <jjwt.version>0.9.1</jjwt.version>
         <redis.version>2.7.0</redis.version>
+        <dingidng.version>2.0.14</dingidng.version>
+        <dingding.service.version>2.0.0</dingding.service.version>
     </properties>
     <!--以依赖管理-->
     <dependencyManagement>
@@ -114,6 +116,17 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${redis.version}</version>
+            </dependency>
+            <!--   钉钉   -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dingtalk</artifactId>
+                <version>${dingidng.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>alibaba-dingtalk-service-sdk</artifactId>
+                <version>${dingding.service.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

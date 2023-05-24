@@ -4,6 +4,7 @@ import com.fjyt.asset.management.POJO.DO.Procure;
 import com.fjyt.asset.management.POJO.DTO.ProcureQueryDTO;
 import com.fjyt.asset.management.POJO.R;
 import com.fjyt.asset.management.POJO.VO.ProcureVO;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -31,4 +32,23 @@ public interface ProcureService {
      * @param procure
      */
     void addProcure(Procure procure);
+
+    /**
+     * 采购验收
+     * @param id
+     * @return
+     */
+    R checkAndAccept(@PathVariable Long id);
+
+    /**
+     * 修改状态
+     * @param status
+     * @param processInstanceId
+     */
+    void updateStatus(String status,String processInstanceId);
+
+    /**
+     * 关联钉钉生成采购单
+     */
+    void addProcureByDingDing(Procure procure,String processInstanceId);
 }

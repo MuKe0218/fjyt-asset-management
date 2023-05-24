@@ -189,7 +189,7 @@ public class AssetUtils {
      */
     public  static List<Map<String,String>> procureStatusList(){
         List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-        for (int i=0 ;i<3;i++){
+        for (int i=0 ;i<4;i++){
             Map map = new Hashtable();
             String label = null;
             String value = null;
@@ -205,9 +205,14 @@ public class AssetUtils {
                     label = ProcureStatusEnum.EXAMINE_AND_APPROVE_NO.getInfo();
                     type = "danger";
                     break;
-                default:
+                case 2:
                     value = ProcureStatusEnum.EXAMINE_AND_APPROVE_OK.getCode();
                     label = ProcureStatusEnum.EXAMINE_AND_APPROVE_OK.getInfo();
+                    type = "success";
+                    break;
+                default :
+                    value = ProcureStatusEnum.CHECK_AND_ACCEPT.getCode();
+                    label = ProcureStatusEnum.CHECK_AND_ACCEPT.getInfo();
                     type = "success";
                     break;
             }

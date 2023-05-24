@@ -96,4 +96,13 @@
     <update id="deleteUseById" parameterType="Long">
         update asset_use set use_del = '1' where id = #{id}
     </update>
+
+    <update id="updateStatus">
+        update asset_use set status = #{status} where use_code = #{useCode}
+    </update>
+
+    <select id="getCodes" parameterType="String" resultType="String">
+        select asset_codes from asset_use
+        where  use_code = #{useCode}
+    </select>
 </mapper>

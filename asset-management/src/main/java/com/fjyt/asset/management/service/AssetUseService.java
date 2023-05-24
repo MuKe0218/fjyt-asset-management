@@ -47,4 +47,23 @@ public interface AssetUseService {
      * @return
      */
      R deleteUseById(Long id);
+
+    /**
+     * 关联钉钉领用资产
+     * @param processInstanceId
+     */
+    void addUseFromDingDing(List<String> assetCodes,String useUser,String processInstanceId);
+
+    /**
+     * 修改领用状态
+     * @param status
+     */
+    void updateStatus(String status,String processInstanceId);
+
+    /**
+     * 获取资产codes
+     * @param useCode
+     * @return
+     */
+    String getCodes(String useCode);
 }

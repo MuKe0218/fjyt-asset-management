@@ -46,4 +46,21 @@ public interface AssetBorrowService {
      * @return
      */
      R borrowDelete(Long id);
+
+    /**
+     * 关联钉钉领用资产
+     * @param processInstanceId
+     */
+    void addBorrowFromDingDing(List<String> assetCode,String borrowUser,String processInstanceId);
+
+    /**
+     * 修改状态
+     */
+    void updateStatus(String status,String processInstanceId);
+    /**
+     * 获取资产codes
+     * @param borrowCode
+     * @return
+     */
+    String getCodes(String borrowCode);
 }

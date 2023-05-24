@@ -81,4 +81,17 @@ public interface AssetMapper {
      * 删除资产图片关联
      */
      void delAssetPicturePath(String assetCode);
+
+    /**
+     * 根据 资产名称和限制长度进行查询
+     * @param assetName
+     * @param limitNum
+     * @return
+     */
+     List<String> getAssetCodeByAssetName(@Param("assetName") String assetName,@Param("limitNum") int limitNum);
+
+    /**
+     * 出库 将仓库id设为null
+     */
+    void updateWarehouse(@Param("codeList") List<String> codeList);
 }

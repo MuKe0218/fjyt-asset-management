@@ -109,4 +109,13 @@
     <update id="borrowDelete" parameterType="Long">
         update asset_borrow set borrow_del = '1' where id = #{id}
     </update>
+
+    <update id="updateStatus">
+        update asset_borrow set status = #{status} where borrow_code = #{borrowCode}
+    </update>
+
+    <select id="getCodes" parameterType="String" resultType="String">
+        select asset_codes from asset_borrow
+        where  borrow_code = #{borrowCode}
+    </select>
 </mapper>

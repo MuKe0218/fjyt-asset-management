@@ -45,6 +45,18 @@ public class Procure implements Serializable {
      */
     private String remark;
     /**
+     * 验收人
+     */
+    private String checkUser;
+    /**
+     * 验收时间
+     */
+    private Date checkTime;
+    /**
+     * 创建方式
+     */
+    private String createWay;
+    /**
      * 采购单创建人
      */
     private String createUser;

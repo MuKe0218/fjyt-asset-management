@@ -5,7 +5,7 @@
     <select id="getProcureList" parameterType="ProcureQueryDTO" resultType="ProcureVO">
         select
         p.id,p.procure_code,p.procure_assets,p.asset_codes,p.procure_user,p.procure_time,
-        p.remark,p.status
+        p.remark,p.status,p.create_way,p.check_user,p.check_time
         from procure p
         <where>
             p.procure_del = '0'
@@ -46,7 +46,8 @@
              <if test="createTime != null">create_time,</if>
              <if test="updateUser != null and updateUser != ''">update_user,</if>
              <if test="updateTime != null">update_time,</if>
-             <if test="status != null and status != ''">status</if>
+             <if test="status != null and status != ''">status,</if>
+            <if test="createWay != null and createWay != ''">create_way</if>
          </trim>
         )
         values
@@ -62,8 +63,35 @@
             <if test="createTime != null">#{createTime},</if>
             <if test="updateUser != null and updateUser != ''">#{updateUser},</if>
             <if test="updateTime != null">#{updateTime},</if>
-            <if test="status != null and status != ''">#{status}</if>
+            <if test="status != null and status != ''">#{status},</if>
+            <if test="createWay != null and createWay != ''">#{createWay}</if>
         </trim>
         )
     </insert>
+
+    <update id="updateProcure" parameterType="Procure">
+        update procure
+        <set>
+            <trim suffixOverrides=",">
+                <if test="procureAssets != null and procureAssets != ''">procure_assets = #{procureAssets},</if>
+                <if test="assetCodes != null and assetCodes != ''">asset_codes = #{assetCodes},</if>
+                <if test="procureUser != null and procureUser != ''">procure_user = #{procureUser},</if>
+                <if test="procureTime != null">procure_time = #{procureTime},</if>
+                <if test="remark != null and remark != ''">remark = #{remark},</if>
+                <if test="createUser != null and createUser != ''">create_user = #{createUser},</if>
+                <if test="createTime != null">create_time = #{createTime},</if>
+                <if test="updateUser != null and updateUser != ''">update_user = #{updateUser},</if>
+                <if test="status != null and status != ''">status = #{status},</if>
+                <if test="checkUser != null and checkUser != ''">check_user = #{checkUser},</if>
+                <if test="checkTime != null">check_time = #{checkTime},</if>
+                <if test="updateTime != null">update_time = #{updateTime}</if>
+            </trim>
+        </set>
+        where
+        id = #{id}
+    </update>
+
+    <update id="updateStatus">
+        update procure set status = #{status} where procure_code = #{procureCode}
+    </update>
 </mapper>

@@ -77,6 +77,14 @@
         </foreach>
     </select>
 
+    <select id="getAssetCodeByAssetName" resultType="String">
+        select a.asset_code from asset a
+        where a.asset_name = #{assetName}
+        and a.asset_del = '0'
+        and a.status = '0'
+        limit #{limitNum}
+    </select>
+
     <insert id="add" parameterType="Asset">
         insert into asset(
             <if test="assetCode != null and assetCode != ''">asset_code,</if>
@@ -133,7 +141,7 @@
 
     <update id="updateStatusList" parameterType="UpdateStatus">
         <foreach collection="collect" item="item" separator=";">
-            update asset set status = #{status} where asset_code = #{item}
+            update asset set status = #{status} where asset_code = #{item} and asset_del = '0'
         </foreach>
     </update>
 
@@ -144,4 +152,14 @@
     <delete id="delAssetPicturePath" parameterType="String">
         delete from asset_picture where asset_code = #{assetCode}
     </delete>
+
+    <update id="updateWarehouse" parameterType="List">
+        UPDATE asset
+        SET warehouse_id = NULL
+        WHERE
+        asset_code IN
+        <foreach collection="codeList" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
 </mapper>
