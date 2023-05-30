@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.AssetBorrowMapper">
 
-    <select id="borrowList" parameterType="BorrowQueryDTO" resultType="AssetBorrowVO">
+    <select id="borrowList" parameterType="com.fjyt.asset.management.POJO.DTO.BorrowQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.AssetBorrowVO">
         select
         ab.id,ab.borrow_code,ab.asset_codes,ab.borrow_user,ab.borrow_time,
         ab.borrow_start_time,ab.expected_return_time,ab.remark,ab.create_user,
@@ -45,7 +45,7 @@
         </where>
     </select>
 
-    <select id="getBorrowById" parameterType="Long" resultType="BorrowDetailVO">
+    <select id="getBorrowById" parameterType="Long" resultType="com.fjyt.asset.management.POJO.VO.BorrowDetailVO">
         select
         ab.id,ab.borrow_code,ab.asset_codes,ab.borrow_user,ab.borrow_time,
         ab.borrow_start_time,ab.expected_return_time,ab.remark,ab.status,
@@ -54,7 +54,7 @@
         where ab.id = #{id}
     </select>
 
-    <insert id="borrowAdd" parameterType="AssetBorrow">
+    <insert id="borrowAdd" parameterType="com.fjyt.asset.management.POJO.DO.AssetBorrow">
         insert into asset_borrow
         (
          <if test="borrowCode != null and borrowCode != ''">borrow_code,</if>
@@ -89,7 +89,7 @@
         )
     </insert>
 
-    <update id="borrowUpdate" parameterType="AssetBorrow">
+    <update id="borrowUpdate" parameterType="com.fjyt.asset.management.POJO.DO.AssetBorrow">
         update asset_borrow
         <set>
             <if test="assetCodes != null and assetCodes != ''">asset_codes = #{assetCodes},</if>

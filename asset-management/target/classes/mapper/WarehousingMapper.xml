@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.WarehousingMapper">
 
-    <select id="getWarehousingList" parameterType="WarehousingQueryDTO" resultType="WarehousingVO">
+    <select id="getWarehousingList" parameterType="com.fjyt.asset.management.POJO.DTO.WarehousingQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.WarehousingVO">
         select
         w.id,w.warehousing_code,w.asset_codes,w.warehousing_time,w.create_user,
         w.create_time,w.update_user,w.update_time
@@ -16,7 +16,7 @@
         </where>
     </select>
 
-    <select id="getWarehousingDetail" parameterType="Long" resultType="WarehousingDetailVO">
+    <select id="getWarehousingDetail" parameterType="Long" resultType="com.fjyt.asset.management.POJO.VO.WarehousingDetailVO">
         select
         w.id,w.warehousing_code,w.asset_codes,w.warehousing_time,w.create_user,
         w.create_time
@@ -26,7 +26,7 @@
             and w.id = #{id}
     </select>
     
-    <insert id="addWarehousing" parameterType="AssetWarehousing">
+    <insert id="addWarehousing" parameterType="com.fjyt.asset.management.POJO.DO.AssetWarehousing">
         insert into warehousing
         (
             <if test="warehousingCode != null and warehousingCode != ''">warehousing_code,</if>

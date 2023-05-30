@@ -10,7 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>asset-management</artifactId>
-
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
     <description>fjyt-asset-management功能模块</description>
     <dependencies>
         <!-- SpringCloud Alibaba Nacos -->

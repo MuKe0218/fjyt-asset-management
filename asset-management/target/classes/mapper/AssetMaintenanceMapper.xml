@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.AssetMaintenanceMapper">
 
-    <select id="maintenanceList" parameterType="MaintenanceQueryDTO" resultType="AssetMaintenanceVO">
+    <select id="maintenanceList" parameterType="com.fjyt.asset.management.POJO.DTO.MaintenanceQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.AssetMaintenanceVO">
         select am.id,am.maintenance_code,am.asset_codes,am.maintenance_user,am.maintenance_time,
                am.remark,am.create_user,am.create_time,am.create_way,am.update_user,
                am.update_time,am.status
@@ -41,14 +41,14 @@
         </where>
     </select>
 
-    <select id="getMaintenanceById" parameterType="Long" resultType="MaintenanceDetailVO">
+    <select id="getMaintenanceById" parameterType="Long" resultType="com.fjyt.asset.management.POJO.VO.MaintenanceDetailVO">
         select am.id,am.maintenance_code,am.asset_codes,am.maintenance_user,am.maintenance_time,
                am.create_user,am.create_time,am.create_way,am.remark
         from asset_maintenance am
         where am.id = #{id}
     </select>
 
-    <insert id="addMaintenance" parameterType="AssetMaintenance">
+    <insert id="addMaintenance" parameterType="com.fjyt.asset.management.POJO.DO.AssetMaintenance">
         insert into asset_maintenance
         (
          <if test="maintenanceCode != null and maintenanceCode != ''">maintenance_code,</if>
@@ -79,7 +79,7 @@
         )
     </insert>
 
-    <update id="updateMaintenance" parameterType="AssetMaintenance">
+    <update id="updateMaintenance" parameterType="com.fjyt.asset.management.POJO.DO.AssetMaintenance">
         update asset_maintenance
         <set>
             <if test="assetCodes != null and assetCodes != ''">asset_codes = #{assetCodes},</if>

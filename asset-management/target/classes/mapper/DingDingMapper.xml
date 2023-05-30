@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.DingDingMapper">
 
-    <insert id="addDingDingEven" parameterType="DingDingEvent">
+    <insert id="addDingDingEven" parameterType="com.fjyt.asset.management.POJO.DO.DingDingEvent">
         insert into dingding_event
         (process_instance_id,message,time)
         values (#{processInstanceId},#{message},#{time})
     </insert>
 
-    <insert id="addManagementDingDing" parameterType="ManagementDingDing">
+    <insert id="addManagementDingDing" parameterType="com.fjyt.asset.management.POJO.DO.ManagementDingDing">
         insert into management_dingding
         (code,process_instance_id)
         values

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.OutboundMapper">
 
-    <select id="getOutboundList" parameterType="OutboundQueryDTO" resultType="OutboundVO">
+    <select id="getOutboundList" parameterType="com.fjyt.asset.management.POJO.DTO.OutboundQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.OutboundVO">
         select
         o.id,o.outbound_code,o.asset_codes,o.outbound_time,o.create_user,
         o.create_time,o.update_user,o.update_time
@@ -15,7 +15,7 @@
         </where>
     </select>
     
-    <select id="getOutboundDetail" parameterType="Long" resultType="OutboundDetailVO">
+    <select id="getOutboundDetail" parameterType="Long" resultType="com.fjyt.asset.management.POJO.VO.OutboundDetailVO">
         select
             o.id,o.outbound_code,o.asset_codes,o.outbound_time,o.create_user,
             o.create_time
@@ -24,7 +24,7 @@
         and o.id = #{id}
     </select>
 
-    <insert id="addOutbound" parameterType="AssetOutbound">
+    <insert id="addOutbound" parameterType="com.fjyt.asset.management.POJO.DO.AssetOutbound">
         insert into outbound
         (
          <if test="outboundCode != null and outboundCode != ''">outbound_code,</if>

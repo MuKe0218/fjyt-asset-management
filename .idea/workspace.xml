@@ -23,15 +23,25 @@
       <change beforePath="$PROJECT_DIR$/../config/dev.env.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/prod.env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AddressMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetBorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetBorrowMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetClassifyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetClassifyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMaintenanceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMaintenanceMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetUseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetUseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/DingDingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/DingDingMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/InventoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/InventoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/OutboundMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/OutboundMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AddressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetBorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetBorrowMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetClassifyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetClassifyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMaintenanceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMaintenanceMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetUseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetUseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/DingDingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/DingDingMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/InventoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/InventoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/OutboundMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/OutboundMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/ProcureMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/ProcureMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehouseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehouseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehousingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehousingMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
@@ -67,6 +77,15 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Maven\mavenRepository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../Maven/apache-maven-3.8.4" />
+        <option name="userSettingsFile" value="D:\Maven\apache-maven-3.8.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2OXK3Gxriht6sCCfL1jsFxAS9XW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -75,6 +94,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -112,9 +132,23 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AssetManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="asset-management" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.fjyt.asset.management.AssetManagementApplication" />
+      <option name="VM_PARAMETERS" value="-Xmx64m -Xms64m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,7 +188,13 @@
       <workItem from="1684888017151" duration="19758000" />
       <workItem from="1684920898204" duration="242000" />
       <workItem from="1684921237698" duration="594000" />
-      <workItem from="1684921870760" duration="1435000" />
+      <workItem from="1684921870760" duration="1777000" />
+      <workItem from="1684974145387" duration="1019000" />
+      <workItem from="1684996767097" duration="4904000" />
+      <workItem from="1685060961188" duration="5601000" />
+      <workItem from="1685323657800" duration="4447000" />
+      <workItem from="1685350622177" duration="1927000" />
+      <workItem from="1685405968302" duration="2462000" />
     </task>
     <servers />
   </component>

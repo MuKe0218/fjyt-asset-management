@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fjyt.asset.management.mapper.AssetMapper">
 
-   <select id="list" parameterType="AssetQueryDTO" resultType="AssetVO">
+   <select id="list" parameterType="com.fjyt.asset.management.POJO.DTO.AssetQueryDTO" resultType="com.fjyt.asset.management.POJO.VO.AssetVO">
         select a.id,a.asset_code,a.asset_name,a.asset_specifications,
                a.asset_unit,a.asset_price,a.remark,a.create_user,a.create_time,
                a.create_way,a.update_user,a.update_time,a.status,ac.classify_name
@@ -46,7 +46,7 @@
         order by a.update_time desc,a.create_time desc
    </select>
 
-    <select id="assetById" parameterType="Long" resultType="AssetDetailVO">
+    <select id="assetById" parameterType="Long" resultType="com.fjyt.asset.management.POJO.VO.AssetDetailVO">
         select a.id,a.asset_code,a.asset_name,a.classify_id,ac.classify_name,a.status,a.asset_specifications,
         a.asset_unit,a.asset_price,a.remark,a.create_way,a.create_user,a.create_time
         from asset a
@@ -67,7 +67,7 @@
         </foreach>
     </select>
 
-    <select id="getAssetByCodes" resultType="AssetVO">
+    <select id="getAssetByCodes" resultType="com.fjyt.asset.management.POJO.VO.AssetVO">
         select a.asset_code,a.asset_name,a.asset_specifications,ac.classify_name
                from asset a
                 left join asset_classify ac on a.classify_id = ac.classify_id
@@ -85,7 +85,7 @@
         limit #{limitNum}
     </select>
 
-    <insert id="add" parameterType="Asset">
+    <insert id="add" parameterType="com.fjyt.asset.management.POJO.DO.Asset">
         insert into asset(
             <if test="assetCode != null and assetCode != ''">asset_code,</if>
             <if test="assetName != null and assetName != ''">asset_name,</if>
@@ -119,11 +119,11 @@
         )
     </insert>
 
-    <insert id="saveAssetPicturePath" parameterType="AssetPicture">
+    <insert id="saveAssetPicturePath" parameterType="com.fjyt.asset.management.POJO.DO.AssetPicture">
         insert into asset_picture(asset_code,picture_path)values(#{assetCode},#{picturePath})
     </insert>
 
-    <update id="update" parameterType="Asset">
+    <update id="update" parameterType="com.fjyt.asset.management.POJO.DO.Asset">
         update asset
         <set>
             <if test="assetName != null and assetName != ''">asset_name = #{assetName},</if>
@@ -139,7 +139,7 @@
         where id = #{id}
     </update>
 
-    <update id="updateStatusList" parameterType="UpdateStatus">
+    <update id="updateStatusList" parameterType="com.fjyt.asset.management.POJO.DTO.UpdateStatus">
         <foreach collection="collect" item="item" separator=";">
             update asset set status = #{status} where asset_code = #{item} and asset_del = '0'
         </foreach>

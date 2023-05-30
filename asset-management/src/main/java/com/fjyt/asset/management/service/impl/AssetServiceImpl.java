@@ -12,7 +12,9 @@ import com.fjyt.asset.management.POJO.R;
 import com.fjyt.asset.management.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -99,7 +101,19 @@ public class AssetServiceImpl implements AssetService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public R delete(Long id) {
+        // 删除资产对应图片
+        // 1.根据id获取assetCode
+        String assetCode = assetMapper.assetById(id).getAssetCode();
+        // 2.根据assetCode获取图片的存储位置
+        String assetPicturePath = assetMapper.getAssetPicturePath(assetCode);
+        // 3.删除资产对应图片
+        if (StringUtils.isNotNull(assetPicturePath)){
+            File file = new File(assetPicturePath);
+            file.delete();
+        }
+        // 删除资产
         assetMapper.delete(id);
         return R.ok("删除成功");
     }

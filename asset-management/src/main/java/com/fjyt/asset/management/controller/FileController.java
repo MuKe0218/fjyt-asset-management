@@ -32,6 +32,12 @@ public class FileController {
     @PostMapping("/upload")
     @Transactional(rollbackFor = Exception.class)
     public R upload(@RequestParam("file") MultipartFile multipartFile, String assetCode) throws IOException {
+        //判断文件目录是否存在
+        File fileExists = new File(filePath);
+        if (!fileExists.exists()){
+            // 不存在创建目录
+            fileExists.mkdirs();
+        }
         //判断是否存在
         if(assetMapper.getAssetPicturePath(assetCode) != null){
             assetMapper.delAssetPicturePath(assetCode);
