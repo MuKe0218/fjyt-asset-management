@@ -23,25 +23,49 @@
       <change beforePath="$PROJECT_DIR$/../config/dev.env.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/prod.env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/constant/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/constant/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetBorrowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetBorrowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetUseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/controller/AssetUseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/exception/GlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/exception/GlobalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetBorrowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetBorrowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetUseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/mapper/AssetUseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetBorrowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetBorrowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetUseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/AssetUseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetBorrowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetBorrowServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/DingDingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/DingDingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/ProcureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/ProcureServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AddressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetBorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetBorrowMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetUseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/AssetUseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/OutboundMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/src/main/resources/mapper/OutboundMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/asset-management-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/asset-management-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/asset-management-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/asset-management-1.0.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/constant/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/constant/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetBorrowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetBorrowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetUseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/controller/AssetUseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/exception/GlobalException.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/exception/GlobalException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetBorrowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetBorrowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetUseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/mapper/AssetUseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetBorrowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetBorrowService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetUseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/AssetUseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetBorrowServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetBorrowServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/AssetUseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/DingDingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/DingDingServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/ProcureServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/com/fjyt/asset/management/service/impl/ProcureServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AddressMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetBorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetBorrowMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetClassifyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetClassifyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMaintenanceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMaintenanceMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetUseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/AssetUseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/DingDingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/DingDingMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/InventoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/InventoryMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/OutboundMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/OutboundMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/ProcureMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/ProcureMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehouseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehouseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehousingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/classes/mapper/WarehousingMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-management/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/asset-management/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
@@ -194,7 +218,16 @@
       <workItem from="1685060961188" duration="5601000" />
       <workItem from="1685323657800" duration="4447000" />
       <workItem from="1685350622177" duration="1927000" />
-      <workItem from="1685405968302" duration="2462000" />
+      <workItem from="1685405968302" duration="6981000" />
+      <workItem from="1685513337427" duration="3147000" />
+      <workItem from="1685536520397" duration="26000" />
+      <workItem from="1685539876168" duration="619000" />
+      <workItem from="1685691614322" duration="4152000" />
+      <workItem from="1685925156008" duration="8734000" />
+      <workItem from="1686011696409" duration="3673000" />
+      <workItem from="1686042088515" duration="20000" />
+      <workItem from="1686110036598" duration="77000" />
+      <workItem from="1686124009547" duration="10151000" />
     </task>
     <servers />
   </component>
@@ -214,6 +247,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/asset-management/src/main/java/com/fjyt/asset/management/service/impl/DingDingServiceImpl.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.sun.proxy.$Proxy84" memberName="h" />

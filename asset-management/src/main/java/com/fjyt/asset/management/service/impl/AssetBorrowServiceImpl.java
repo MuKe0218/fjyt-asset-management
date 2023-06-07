@@ -93,12 +93,21 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
         updateStatus.setCollect(collect);
         assetMapper.updateStatusList(updateStatus);
 
-        // 出库
-        assetMapper.updateWarehouse(collect);
-        // 新增出库单
-        OutboundDTO outboundDTO = new OutboundDTO();
-        outboundDTO.setAssetCodes(assetCodes);
-        outboundService.addOutbound(outboundDTO);
+        List<String> collect1 = collect.stream().map(assetCode -> {
+            Integer warehouseId = assetMapper.getWarehousing(assetCode);
+            if (warehouseId != null) {
+                return assetCode;
+            }
+            return "";
+        }).filter(string -> !string.isEmpty()).collect(Collectors.toList());
+        if (collect1.size() > 0){
+            // 出库
+            assetMapper.updateWarehouse(collect1);
+            // 新增出库单
+            OutboundDTO outboundDTO = new OutboundDTO();
+            outboundDTO.setAssetCodes(collect1.toString().substring(1,collect1.toString().length()-1));
+            outboundService.addOutbound(outboundDTO);
+        }
 
         String userName = JwtUtils.getUserName(TokenUtils.getToken());
         AssetBorrow assetBorrow = new AssetBorrow();
@@ -183,11 +192,12 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
         System.out.println("关联钉钉创建借用单");
         String code = new SerialNumberUtils().createSerialNumber(SerialNumberConstants.ASSET_JY);
         String assetCodesString = assetCodes.toString().substring(1,assetCodes.toString().length()-1);
-        // 新增领用与审批关联表
+        // 新增借用与审批关联表
         ManagementDingDing managementDingDing = new ManagementDingDing();
         managementDingDing.setCode(code);
         managementDingDing.setProcessInstanceId(processInstanceId);
         dingDingMapper.addManagementDingDing(managementDingDing);
+        // 新增借用单
         AssetBorrow assetBorrow = new AssetBorrow();
         assetBorrow.setBorrowCode(code);
         assetBorrow.setBorrowUser(borrowUser);
@@ -197,17 +207,28 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
         assetBorrow.setCreateTime(DateUtils.getNowDate());
         assetBorrow.setUpdateTime(DateUtils.getNowDate());
         assetBorrow.setAssetCodes(assetCodesString);
-        // 将所领用的资产状态变为审批中
+        assetBorrowMapper.borrowAdd(assetBorrow);
+        // 将所借用的资产状态变为审批中
         UpdateStatus updateStatus = new UpdateStatus();
         updateStatus.setStatus("3");
         updateStatus.setCollect(assetCodes);
         assetMapper.updateStatusList(updateStatus);
-        // 出库
-        assetMapper.updateWarehouse(assetCodes);
-        // 创建出库单
-        OutboundDTO outboundDTO = new OutboundDTO();
-        outboundDTO.setAssetCodes(assetCodesString);
-        outboundService.addOutbound(outboundDTO);
+
+        List<String> collect1 = assetCodes.stream().map(assetCode -> {
+            Integer warehouseId = assetMapper.getWarehousing(assetCode);
+            if (warehouseId != null) {
+                return assetCode;
+            }
+            return "";
+        }).filter(string -> !string.isEmpty()).collect(Collectors.toList());
+        if (collect1.size() > 0){
+            // 出库
+            assetMapper.updateWarehouse(collect1);
+            // 新增出库单
+            OutboundDTO outboundDTO = new OutboundDTO();
+            outboundDTO.setAssetCodes(collect1.toString().substring(1,collect1.toString().length()-1));
+            outboundService.addOutbound(outboundDTO);
+        }
     }
 
     /**
@@ -230,5 +251,21 @@ public class AssetBorrowServiceImpl implements AssetBorrowService {
     @Override
     public String getCodes(String borrowCode) {
         return assetBorrowMapper.getCodes(borrowCode);
+    }
+
+    /**
+     * 归还
+     * @param id
+     * @return
+     */
+    @Override
+    public R assetReturn(Long id) {
+        // 修改借用状态
+        assetBorrowMapper.updateStatusById(id);
+        // 修改资产状态
+        BorrowDetailVO borrowDetailVO = assetBorrowMapper.getBorrowById(id);
+        List<String> strings = Arrays.asList(borrowDetailVO.getAssetCodes().replace(" ","").split(","));
+        assetMapper.updateStatusList(new UpdateStatus("0",strings));
+        return null;
     }
 }

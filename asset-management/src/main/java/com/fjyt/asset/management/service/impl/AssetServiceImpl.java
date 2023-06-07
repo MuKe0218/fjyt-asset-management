@@ -3,8 +3,10 @@ package com.fjyt.asset.management.service.impl;
 import com.fjyt.asset.management.POJO.DO.Asset;
 import com.fjyt.asset.management.POJO.DTO.AssetDTO;
 import com.fjyt.asset.management.POJO.DTO.AssetQueryDTO;
+import com.fjyt.asset.management.POJO.VO.AssetDetailVO;
 import com.fjyt.asset.management.POJO.VO.AssetVO;
 import com.fjyt.asset.management.constant.SerialNumberConstants;
+import com.fjyt.asset.management.exception.AssetException;
 import com.fjyt.asset.management.mapper.AssetClassifyMapper;
 import com.fjyt.asset.management.mapper.AssetMapper;
 import com.fjyt.asset.management.service.AssetService;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -104,8 +107,9 @@ public class AssetServiceImpl implements AssetService {
     @Transactional(rollbackFor = Exception.class)
     public R delete(Long id) {
         // 删除资产对应图片
+        AssetDetailVO assetDetailVO = assetMapper.assetById(id);
         // 1.根据id获取assetCode
-        String assetCode = assetMapper.assetById(id).getAssetCode();
+        String assetCode = assetDetailVO.getAssetCode();
         // 2.根据assetCode获取图片的存储位置
         String assetPicturePath = assetMapper.getAssetPicturePath(assetCode);
         // 3.删除资产对应图片
@@ -114,7 +118,20 @@ public class AssetServiceImpl implements AssetService {
             file.delete();
         }
         // 删除资产
+        // 查看资产状态
+        String status = assetDetailVO.getStatus();
+        if (status.equals("1")){
+            throw new AssetException(500,"资产使用中，无法删除");
+        }else if (status.equals("2")){
+            throw new AssetException(500,"资产借用中，无法删除");
+        }else if (status.equals("3")){
+            throw new AssetException(500,"资产审批中，无法删除");
+        }else if (status.equals("4")){
+            throw new AssetException(500,"资产维修中，无法删除");
+        }
         assetMapper.delete(id);
+        // 库存除去该资产
+        assetMapper.updateWarehouse(Arrays.asList(assetCode));
         return R.ok("删除成功");
     }
 }

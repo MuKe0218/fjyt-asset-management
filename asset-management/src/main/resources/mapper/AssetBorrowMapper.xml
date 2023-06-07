@@ -114,6 +114,10 @@
         update asset_borrow set status = #{status} where borrow_code = #{borrowCode}
     </update>
 
+    <update id="updateStatusById">
+        update asset_borrow set status = '3' where id = #{id}
+    </update>
+
     <select id="getCodes" parameterType="String" resultType="String">
         select asset_codes from asset_borrow
         where  borrow_code = #{borrowCode}

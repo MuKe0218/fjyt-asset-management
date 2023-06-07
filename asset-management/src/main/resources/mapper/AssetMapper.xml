@@ -85,6 +85,10 @@
         limit #{limitNum}
     </select>
 
+    <select id="getWarehousing" resultType="java.lang.Integer">
+        select warehouse_id from asset where asset_code = #{assetCode}
+    </select>
+
     <insert id="add" parameterType="com.fjyt.asset.management.POJO.DO.Asset">
         insert into asset(
             <if test="assetCode != null and assetCode != ''">asset_code,</if>

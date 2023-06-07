@@ -86,4 +86,14 @@ public class AssetUseController {
     public R deleteUseById(@PathVariable Long id){
         return assetUseService.deleteUseById(id);
     }
+
+    /**
+     * 退库操作
+     * @param id
+     * @return
+     */
+    @PutMapping("/{id}")
+    public R stockReturn(@PathVariable Long id){
+        return assetUseService.stockReturn(id);
+    }
 }

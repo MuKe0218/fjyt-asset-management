@@ -56,6 +56,7 @@ D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asse
 D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asset\management\POJO\DO\AssetClassify.java
 D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asset\management\POJO\VO\WarehouseDetailVO.java
 D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asset\management\POJO\TableDataInfo.java
+D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asset\management\exception\AssetException.java
 D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asset\management\POJO\DTO\WarehouseQueryDTO.java
 D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asset\management\service\impl\DingDingServiceImpl.java
 D:\GitProject\fjyt-asset-management\asset-management\src\main\java\com\fjyt\asset\management\controller\InventoryController.java

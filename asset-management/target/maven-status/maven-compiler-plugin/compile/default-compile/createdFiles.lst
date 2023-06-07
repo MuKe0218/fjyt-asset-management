@@ -129,6 +129,7 @@ com\fjyt\asset\management\service\AssetBorrowService.class
 com\fjyt\asset\management\POJO\DTO\UpdateStatus.class
 com\fjyt\asset\management\service\impl\AssetClassifyServiceImpl.class
 com\fjyt\asset\management\service\impl\DingDingServiceImpl.class
+com\fjyt\asset\management\exception\AssetException.class
 com\fjyt\asset\management\mapper\OutboundMapper.class
 com\fjyt\asset\management\controller\AssetUseController.class
 com\fjyt\asset\management\POJO\DTO\AssetQueryDTO.class

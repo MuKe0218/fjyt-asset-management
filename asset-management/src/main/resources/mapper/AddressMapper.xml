@@ -36,7 +36,7 @@
     </select>
 
     <select id="getCounty" parameterType="com.fjyt.asset.management.POJO.DO.County" resultType="com.fjyt.asset.management.POJO.DO.County">
-        select * from County
+        select * from county
         <where>
             <if test="id != null">
                 and id = #{id}

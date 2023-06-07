@@ -23,5 +23,8 @@ public class GlobalException {
     public R exceptionHandler(WarehouseException exception){
         return R.fail(exception.getCode(),exception.getMessage());
     }
-
+    @ExceptionHandler(AssetException.class)
+    public R exceptionHandler(AssetException exception){
+        return R.fail(exception.getCode(),exception.getMessage());
+    }
 }

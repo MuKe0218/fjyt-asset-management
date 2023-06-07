@@ -101,6 +101,10 @@
         update asset_use set status = #{status} where use_code = #{useCode}
     </update>
 
+    <update id="updateStatusById">
+        update asset_use set status = '3' where id = #{id}
+    </update>
+
     <select id="getCodes" parameterType="String" resultType="String">
         select asset_codes from asset_use
         where  use_code = #{useCode}

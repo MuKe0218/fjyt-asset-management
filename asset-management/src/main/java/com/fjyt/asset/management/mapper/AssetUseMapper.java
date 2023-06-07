@@ -55,4 +55,9 @@ public interface AssetUseMapper {
      * 根据useCode查询资产codes
      */
     String getCodes(@Param("useCode") String useCode);
+
+    /**
+     * 根据id修改领用状态
+     */
+    void updateStatusById(@Param("id") Long id);
 }

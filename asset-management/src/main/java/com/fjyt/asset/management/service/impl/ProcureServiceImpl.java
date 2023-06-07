@@ -43,15 +43,16 @@ public class ProcureServiceImpl implements ProcureService {
     public List<ProcureVO> getProcureList(ProcureQueryDTO procureQueryDTO) {
         List<ProcureVO> procureList = procureMapper.getProcureList(procureQueryDTO);
         procureList.forEach(procureVO -> {
-            List<String> stringList = new ArrayList<>();
-            List<DingDingDTO> dingDingDTOS = JSONArray.parseArray(procureVO.getProcureAssets(), DingDingDTO.class);
-            dingDingDTOS.forEach(dingDingDTO -> {
-                List<Map<String, String>> rowValue = dingDingDTO.getRowValue();
-                String assetName = rowValue.get(0).get("value");
-                stringList.add(assetName);
-            });
-            String assetNames = stringList.toString();
-            procureVO.setAssetNames(assetNames.substring(1,assetNames.length()-1));
+//            List<String> stringList = new ArrayList<>();
+//            List<DingDingDTO> dingDingDTOS = JSONArray.parseArray(procureVO.getProcureAssets(), DingDingDTO.class);
+//            dingDingDTOS.forEach(dingDingDTO -> {
+//                List<Map<String, String>> rowValue = dingDingDTO.getRowValue();
+//                String assetName = rowValue.get(0).get("value");
+//                stringList.add(assetName);
+//            });
+//            String assetNames = stringList.toString();
+//            procureVO.setAssetNames(assetNames.substring(1,assetNames.length()-1));
+            procureVO.setAssetNames(procureVO.getProcureAssets());
         });
         return procureList;
     }
@@ -117,32 +118,40 @@ public class ProcureServiceImpl implements ProcureService {
 
         // 获取procure_assets
         String procureAssets = procureMapper.getProcureDetail(id).getProcureAssets();
-        List<DingDingDTO> dingDingDTOS = JSONArray.parseArray(procureAssets, DingDingDTO.class);
-
-        dingDingDTOS.forEach(dingDingDTO -> {
-            List<Map<String, String>> rowValue = dingDingDTO.getRowValue();
-
-            String assetName = rowValue.get(0).get("value");
-            String specifications = rowValue.get(1).get("value");
-            int num = Integer.valueOf(rowValue.get(2).get("value"));
-            String unit = rowValue.get(3).get("value");
-            Float price = Float.valueOf(rowValue.get(4).get("value"));
-            //System.out.println("物品名称："+assetName+"；规格："+specifications+"；数量："+num+"；单位："+unit+"；价格："+price);
-
-            for (int i=0;i<num;i++){
-                String assetCode = new SerialNumberUtils().createSerialNumber(SerialNumberConstants.ASSET_ZC);
-                Asset asset = new Asset();
-                asset.setAssetCode(assetCode);
-                asset.setAssetName(assetName);
-                asset.setAssetSpecifications(specifications);
-                asset.setAssetUnit(unit);
-                asset.setAssetPrice(price);
-                asset.setCreateTime(date);
-                asset.setUpdateTime(date);
-                asset.setCreateWay("1");
-                assetMapper.add(asset);
-            }
-        });
+//        List<DingDingDTO> dingDingDTOS = JSONArray.parseArray(procureAssets, DingDingDTO.class);
+//
+//        dingDingDTOS.forEach(dingDingDTO -> {
+//            List<Map<String, String>> rowValue = dingDingDTO.getRowValue();
+//
+//            String assetName = rowValue.get(0).get("value");
+//            String specifications = rowValue.get(1).get("value");
+//            int num = Integer.valueOf(rowValue.get(2).get("value"));
+//            String unit = rowValue.get(3).get("value");
+//            Float price = Float.valueOf(rowValue.get(4).get("value"));
+//            //System.out.println("物品名称："+assetName+"；规格："+specifications+"；数量："+num+"；单位："+unit+"；价格："+price);
+//
+//            for (int i=0;i<num;i++){
+//                String assetCode = new SerialNumberUtils().createSerialNumber(SerialNumberConstants.ASSET_ZC);
+//                Asset asset = new Asset();
+//                asset.setAssetCode(assetCode);
+//                asset.setAssetName(assetName);
+//                asset.setAssetSpecifications(specifications);
+//                asset.setAssetUnit(unit);
+//                asset.setAssetPrice(price);
+//                asset.setCreateTime(date);
+//                asset.setUpdateTime(date);
+//                asset.setCreateWay("1");
+//                assetMapper.add(asset);
+//            }
+//        });
+        String assetCode = new SerialNumberUtils().createSerialNumber(SerialNumberConstants.ASSET_ZC);
+        Asset asset = new Asset();
+        asset.setAssetCode(assetCode);
+        asset.setAssetName(procureAssets);
+        asset.setCreateTime(date);
+        asset.setUpdateTime(date);
+        asset.setCreateWay("1");
+        assetMapper.add(asset);
         return null;
     }
 
@@ -160,8 +169,8 @@ public class ProcureServiceImpl implements ProcureService {
 
     /**
      * 关联钉钉新增采购单
-     * @param procureAssets
-     * @param procureUser
+     * @param
+     * @param
      */
     @Override
     @Transactional(rollbackFor = Exception.class)

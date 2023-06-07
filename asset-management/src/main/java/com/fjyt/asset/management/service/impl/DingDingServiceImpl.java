@@ -99,13 +99,13 @@ public class DingDingServiceImpl implements DingDingService {
                 System.out.println(eventJson.getString("processInstanceId"));
                 System.out.println(eventJson.getString("type"));
                 if (Constants.ZC_USE.equals(module)){
-                    System.out.println("1111");
+                    System.out.println("领用");
                     UseWork(eventJson);
                 } else if (Constants.ZC_BORROW.equals(module)){
-                    System.out.println("2222");
+                    System.out.println("借用");
                     BorrowWork(eventJson);
                 }else if (Constants.ZC_PROCURE.equals(module)){
-                    System.out.println("3333");
+                    System.out.println("采购");
                     ProcureWork(eventJson);
                 }
             } else if ("check_url".equals(eventType)){
@@ -189,7 +189,6 @@ public class DingDingServiceImpl implements DingDingService {
         System.out.println("StringUtils.isNotNull(resultCode):"+StringUtils.isNotNull(resultCode));
         //  判断审批状态是否为开始 同时判断事件是否已保存
         if("start".equals(type) && !StringUtils.isNotNull(resultCode)){
-            TimeUnit.SECONDS.sleep(1);
             // 根据processInstanceId调用钉钉api获取审批实例信息 保存到数据库中
             List<GetProcessInstanceResponseBody.GetProcessInstanceResponseBodyResultFormComponentValues> singleApprove = getSingleApprove(processInstanceId);
             // 保存事件信息
@@ -199,21 +198,25 @@ public class DingDingServiceImpl implements DingDingService {
             dingDingEvent.setTime(DateUtils.getNowDate());
             dingDingMapper.addDingDingEven(dingDingEvent);
 
-            GetProcessInstanceResponseBody.GetProcessInstanceResponseBodyResultFormComponentValues getProcessInstanceResponseBodyResultFormComponentValues = singleApprove.get(1);
+            GetProcessInstanceResponseBody.GetProcessInstanceResponseBodyResultFormComponentValues getProcessInstanceResponseBodyResultFormComponentValues = singleApprove.get(7);
             String value = getProcessInstanceResponseBodyResultFormComponentValues.getValue();
             System.out.println(value);
             List<String> list = new ArrayList<>();
-            List<DingDingDTO> dingDingDTOS = JSONArray.parseArray(value, DingDingDTO.class);
-            dingDingDTOS.stream().forEach(dingDingDTO -> {
-                List<Map<String, String>> rowValue = dingDingDTO.getRowValue();
-                Map<String, String> assetNameMap = rowValue.get(0);
-                Map<String, String> numMap = rowValue.get(1);
-                String assetName = assetNameMap.get("value");
-                int num = Integer.valueOf(numMap.get("value"));
-                System.out.println("物品名称："+assetName+"；数量："+num);
-                List<String> assetCodeByAssetName = assetMapper.getAssetCodeByAssetName(assetName, num);
-                list.addAll(assetCodeByAssetName);
-            });
+//            List<DingDingDTO> dingDingDTOS = JSONArray.parseArray(value, DingDingDTO.class);
+//            dingDingDTOS.stream().forEach(dingDingDTO -> {
+//                List<Map<String, String>> rowValue = dingDingDTO.getRowValue();
+//                Map<String, String> assetNameMap = rowValue.get(0);
+//                Map<String, String> numMap = rowValue.get(1);
+//                String assetName = assetNameMap.get("value");
+//                int num = Integer.valueOf(numMap.get("value"));
+//                System.out.println("物品名称："+assetName+"；数量："+num);
+//                List<String> assetCodeByAssetName = assetMapper.getAssetCodeByAssetName(assetName, num);
+//                list.addAll(assetCodeByAssetName);
+//            });
+            String assetName = value;
+            int num = Integer.valueOf(singleApprove.get(9).getValue());
+            List<String> assetCodeByAssetName = assetMapper.getAssetCodeByAssetName(assetName, num);
+            list.addAll(assetCodeByAssetName);
             // 关联创建领用单，并将领用单状态设置为审批中
             assetUseService.addUseFromDingDing(list,useUser,processInstanceId);
         }else if ("finish".equals(type) && StringUtils.isNotNull(resultCode)){
@@ -259,7 +262,6 @@ public class DingDingServiceImpl implements DingDingService {
         String resultCode = dingDingMapper.getCode(processInstanceId);
         // 判断审批状态是否为开始 同时判断事件是否已保存
         if("start".equals(type) && !StringUtils.isNotNull(resultCode)){
-            TimeUnit.SECONDS.sleep(1);
             //根据processInstanceId调用钉钉api获取审批实例信息 保存到数据库中
             List<GetProcessInstanceResponseBody.GetProcessInstanceResponseBodyResultFormComponentValues> singleApprove = getSingleApprove(processInstanceId);
             // 保存事件信息
@@ -276,8 +278,8 @@ public class DingDingServiceImpl implements DingDingService {
             List<DingDingDTO> dingDingDTOS = JSONArray.parseArray(value, DingDingDTO.class);
             dingDingDTOS.stream().forEach(dingDingDTO -> {
                 List<Map<String, String>> rowValue = dingDingDTO.getRowValue();
-                Map<String, String> assetNameMap = rowValue.get(0);
-                Map<String, String> numMap = rowValue.get(1);
+                Map<String, String> assetNameMap = rowValue.get(3);
+                Map<String, String> numMap = rowValue.get(4);
                 String assetName = assetNameMap.get("value");
                 int num = Integer.valueOf(numMap.get("value"));
                 System.out.println("物品名称："+assetName+"；数量："+num);
@@ -328,7 +330,6 @@ public class DingDingServiceImpl implements DingDingService {
         String resultCode = dingDingMapper.getCode(processInstanceId);
         // 判断审批状态是否为开始 同时判断事件是否已保存
         if("start".equals(type)  && !StringUtils.isNotNull(resultCode)){
-            TimeUnit.SECONDS.sleep(1);
             //根据processInstanceId调用钉钉api获取审批实例信息 保存到数据库中
             List<GetProcessInstanceResponseBody.GetProcessInstanceResponseBodyResultFormComponentValues> singleApprove = getSingleApprove(processInstanceId);
             // 保存事件信息
@@ -338,13 +339,18 @@ public class DingDingServiceImpl implements DingDingService {
             dingDingEvent.setTime(DateUtils.getNowDate());
             dingDingMapper.addDingDingEven(dingDingEvent);
 
-            GetProcessInstanceResponseBody.GetProcessInstanceResponseBodyResultFormComponentValues getProcessInstanceResponseBodyResultFormComponentValues = singleApprove.get(3);
+            GetProcessInstanceResponseBody.GetProcessInstanceResponseBodyResultFormComponentValues getProcessInstanceResponseBodyResultFormComponentValues = singleApprove.get(4);
             String value = getProcessInstanceResponseBodyResultFormComponentValues.getValue();
             System.out.println(value);
             Procure procure = new Procure();
             procure.setProcureAssets(value);
             procure.setProcureUser(procureUser);
-            procure.setRemark(singleApprove.get(5).getValue());
+            String flag = singleApprove.get(8).getValue();
+            if (flag.equals("是")){
+                procure.setRemark(singleApprove.get(16).getValue());
+            }else{
+                procure.setRemark(singleApprove.get(11).getValue());
+            }
             // 创建采购单,并将采购状态变为审批中
             procureService.addProcureByDingDing(procure,processInstanceId);
         }else if ("finish".equals(type)  && StringUtils.isNotNull(resultCode)){

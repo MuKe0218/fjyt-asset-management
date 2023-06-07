@@ -95,12 +95,27 @@ public class AssetUseServiceImpl implements AssetUseService {
         updateStatus.setStatus("1");
         updateStatus.setCollect(collect);
         assetMapper.updateStatusList(updateStatus);
-        // 出库
-        assetMapper.updateWarehouse(collect);
-        // 新增出库单
-        OutboundDTO outboundDTO = new OutboundDTO();
-        outboundDTO.setAssetCodes(assetCodes);
-        outboundService.addOutbound(outboundDTO);
+
+        System.out.println(collect);
+        List<String> collect1 = collect.stream().map(assetCode -> {
+            Integer warehouseId = assetMapper.getWarehousing(assetCode);
+            System.out.println(warehouseId);
+            if (warehouseId != null) {
+                return assetCode;
+            }
+            return "";
+        }).filter(string -> !string.isEmpty()).collect(Collectors.toList());
+        System.out.println(collect1.isEmpty());
+        System.out.println(collect1.size());
+        System.out.println(collect1);
+        if (collect1.size() > 0){
+            // 出库
+            assetMapper.updateWarehouse(collect1);
+            // 新增出库单
+            OutboundDTO outboundDTO = new OutboundDTO();
+            outboundDTO.setAssetCodes(collect1.toString().substring(1,collect1.toString().length()-1));
+            outboundService.addOutbound(outboundDTO);
+        }
 
         String userName = JwtUtils.getUserName(TokenUtils.getToken());
         AssetUse assetUse = new AssetUse();
@@ -205,12 +220,23 @@ public class AssetUseServiceImpl implements AssetUseService {
         updateStatus.setStatus("3");
         updateStatus.setCollect(assetCodes);
         assetMapper.updateStatusList(updateStatus);
-        // 出库
-        assetMapper.updateWarehouse(assetCodes);
-        // 创建出库单
-        OutboundDTO outboundDTO = new OutboundDTO();
-        outboundDTO.setAssetCodes(assetCodesString);
-        outboundService.addOutbound(outboundDTO);
+
+        List<String> collect1 = assetCodes.stream().map(assetCode -> {
+            Integer warehouseId = assetMapper.getWarehousing(assetCode);
+            if (warehouseId != null) {
+                return assetCode;
+            }
+            return "";
+        }).filter(string -> !string.isEmpty()).collect(Collectors.toList());
+        System.out.println(collect1);
+        if (collect1.size() > 0){
+            // 出库
+            assetMapper.updateWarehouse(collect1);
+            // 新增出库单
+            OutboundDTO outboundDTO = new OutboundDTO();
+            outboundDTO.setAssetCodes(collect1.toString().substring(1,collect1.toString().length()-1));
+            outboundService.addOutbound(outboundDTO);
+        }
     }
 
     /**
@@ -232,5 +258,22 @@ public class AssetUseServiceImpl implements AssetUseService {
     @Override
     public String getCodes(String useCode) {
         return assetUseMapper.getCodes(useCode);
+    }
+
+    /**
+     * 退库操作
+     * @param id
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public R stockReturn(Long id) {
+        // 修改领用状态
+        assetUseMapper.updateStatusById(id);
+        // 修改资产状态
+        UseDetailVO useDetailVO = assetUseMapper.useListById(id);
+        List<String> strings = Arrays.asList(useDetailVO.getAssetCodes().replace(" ","").split(","));
+        assetMapper.updateStatusList(new UpdateStatus("0",strings));
+        return R.ok("退库成功");
     }
 }

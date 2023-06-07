@@ -94,4 +94,9 @@ public interface AssetMapper {
      * 出库 将仓库id设为null
      */
     void updateWarehouse(@Param("codeList") List<String> codeList);
+
+    /**
+     * 根据assetCode获取仓库id
+     */
+    Integer getWarehousing(@Param("assetCode") String assetCode);
 }

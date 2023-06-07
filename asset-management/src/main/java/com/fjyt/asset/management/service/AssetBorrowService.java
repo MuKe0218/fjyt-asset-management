@@ -63,4 +63,9 @@ public interface AssetBorrowService {
      * @return
      */
     String getCodes(String borrowCode);
+
+    /**
+     * 归还
+     */
+    R assetReturn(Long id);
 }

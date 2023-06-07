@@ -84,4 +84,12 @@ public class AssetBorrowController {
     public R borrowDelete(@PathVariable Long id){
         return assetBorrowService.borrowDelete(id);
     }
+
+    /**
+     * 归还
+     */
+    @PutMapping("/{id}")
+    public R assetReturn(@PathVariable Long id) {
+        return assetBorrowService.assetReturn(id);
+    }
 }

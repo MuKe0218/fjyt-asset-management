@@ -58,4 +58,10 @@ public interface AssetBorrowMapper {
      * 根据borrowCode查询资产codes
      */
     String getCodes(@Param("borrowCode") String borrowCode);
+
+    /**
+     * 根据id修改资产状态
+     * @param id
+     */
+    void updateStatusById(@Param("id") Long id);
 }

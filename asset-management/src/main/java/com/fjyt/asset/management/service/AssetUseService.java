@@ -66,4 +66,11 @@ public interface AssetUseService {
      * @return
      */
     String getCodes(String useCode);
+
+    /**
+     * 退库操作
+     * @param id
+     * @return
+     */
+    R stockReturn(Long id);
 }

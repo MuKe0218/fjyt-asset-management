@@ -13,6 +13,7 @@
                 o.outbound_code = #{outboundCode}
             </if>
         </where>
+        order by o.create_time desc
     </select>
     
     <select id="getOutboundDetail" parameterType="Long" resultType="com.fjyt.asset.management.POJO.VO.OutboundDetailVO">
